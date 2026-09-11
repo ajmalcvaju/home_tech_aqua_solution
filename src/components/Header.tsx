@@ -89,7 +89,7 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo - lightMode when transparent */}
           <Link href="/" className="flex items-center gap-2 group">
-            <BrandLogo lightMode={isTransparent} className="h-10 sm:h-11" />
+            <BrandLogo lightMode={isTransparent} className="h-12 sm:h-14 lg:h-16" />
           </Link>
 
           {/* Navigation Links in Center */}
