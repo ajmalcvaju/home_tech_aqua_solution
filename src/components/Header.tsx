@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, MapPin, ShieldCheck } from "lucide-react";
+import { Menu, X, Phone, MapPin, ShieldCheck, Home, Droplets, Wrench, Info, PhoneCall, ChevronRight } from "lucide-react";
 import BrandLogo from "./BrandLogo";
 import WhatsAppIcon from "./WhatsAppIcon";
 
@@ -31,18 +31,18 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
   const isTransparent = isHomePage && !isScrolled;
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Products", href: "/products" },
-    { name: "Services", href: "/services" },
-    { name: "About Us", href: "/about" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Home", href: "/", icon: Home },
+    { name: "Products", href: "/products", icon: Droplets },
+    { name: "Services", href: "/services", icon: Wrench },
+    { name: "About Us", href: "/about", icon: Info },
+    { name: "Contact Us", href: "/contact", icon: PhoneCall },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
       {/* Top Info Bar */}
       <div
-        className={`text-xs py-1.5 px-4 transition-colors duration-300 ${
+        className={`hidden md:block text-xs py-1.5 px-4 transition-colors duration-300 ${
           isTransparent
             ? "bg-[#051426]/90 text-slate-300 border-b border-cyan-500/20"
             : "bg-[#06182C] text-white border-b border-cyan-500/20"
@@ -128,45 +128,75 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
 
           {/* Mobile menu trigger */}
           <div className="flex md:hidden items-center gap-2">
-            <Link
-              href="/contact#booking"
-              className="px-4 py-2 text-xs font-black text-[#06182C] bg-[#00C4DF] rounded-full shadow"
-            >
-              Book Service
-            </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 rounded-lg focus:outline-none ${
-                isTransparent ? "text-white hover:bg-white/10" : "text-slate-700 hover:bg-slate-100"
+              className={`p-2.5 rounded-xl focus:outline-none transition-colors ${
+                isTransparent
+                  ? "text-white bg-white/10 hover:bg-white/20"
+                  : "text-slate-800 bg-slate-100 hover:bg-slate-200"
               }`}
               aria-label="Toggle Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6 text-cyan-400" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile menu drawer */}
+        {/* Ultra-Premium Mobile Menu Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white text-slate-900 border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-xl">
-            <div className="flex flex-col space-y-1">
+          <div className="md:hidden bg-[#06182C] text-white border-b border-cyan-500/20 px-4 pt-4 pb-6 space-y-4 shadow-2xl backdrop-blur-xl animate-in slide-in-from-top-2 duration-300">
+            <div className="flex flex-col space-y-1.5">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
+                const IconComponent = link.icon;
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`px-4 py-3 rounded-lg text-base font-semibold transition-colors ${
+                    className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-bold transition-all ${
                       isActive
-                        ? "text-[#00C4DF] bg-cyan-50 font-bold"
-                        : "text-slate-800 hover:bg-slate-50"
+                        ? "text-cyan-300 bg-cyan-500/15 border border-cyan-400/30 shadow-sm"
+                        : "text-slate-200 hover:bg-slate-800/80 hover:text-white"
                     }`}
                   >
-                    {link.name}
+                    <div className="flex items-center gap-3">
+                      <div className={`p-2 rounded-lg ${isActive ? "bg-cyan-500 text-slate-950" : "bg-slate-800 text-cyan-400"}`}>
+                        <IconComponent className="w-4 h-4" />
+                      </div>
+                      <span>{link.name}</span>
+                    </div>
+                    <ChevronRight className={`w-4 h-4 transition-transform ${isActive ? "text-cyan-400 translate-x-0.5" : "text-slate-500"}`} />
                   </Link>
                 );
               })}
+            </div>
+
+            {/* Mobile Drawer Quick Action Buttons */}
+            <div className="pt-3 border-t border-slate-800 space-y-2.5">
+              <Link
+                href="/contact#booking"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#00C4DF] hover:bg-[#00B2CB] text-[#06182C] font-black rounded-xl shadow-md text-sm transition-transform active:scale-[0.99]"
+              >
+                <Wrench className="w-4 h-4" /> Book a Service
+              </Link>
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href="https://wa.me/919061548607?text=Hi%20HomeTech,%20I%20want%20to%20inquire%20about%20Water%20Purifiers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 font-bold rounded-xl text-xs hover:bg-emerald-600/30 transition-colors"
+                >
+                  <WhatsAppIcon className="w-3.5 h-3.5 fill-current" /> WhatsApp
+                </a>
+                <a
+                  href="tel:+919061548607"
+                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-cyan-600/20 border border-cyan-500/30 text-cyan-300 font-bold rounded-xl text-xs hover:bg-cyan-600/30 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5" /> Call Sales
+                </a>
+              </div>
             </div>
           </div>
         )}

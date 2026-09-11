@@ -66,16 +66,16 @@ export default function ProductsPage() {
           </div>
         </section>
 
-        {/* Filter Controls Bar matching Screenshot 1 */}
+        {/* Filter Controls Bar */}
         <section className="bg-white border-b border-slate-200 shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-center">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3.5">
             {/* Pill Category Tabs */}
-            <div className="flex items-center gap-3 overflow-x-auto w-full pb-2 md:pb-0 scrollbar-none justify-center">
+            <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto w-full py-1 scrollbar-none justify-start md:justify-center flex-nowrap px-1">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all shrink-0 cursor-pointer ${
+                  className={`px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all shrink-0 cursor-pointer whitespace-nowrap ${
                     selectedCategory === cat
                       ? "bg-[#0B3C70] text-white shadow-md shadow-blue-900/20 scale-105"
                       : "bg-slate-100 text-slate-700 hover:bg-slate-200"

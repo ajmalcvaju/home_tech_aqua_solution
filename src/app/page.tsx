@@ -17,7 +17,7 @@ import { ShieldCheck, Droplets, Sparkles, ArrowRight, Award, Clock, Activity, St
 export default function HomePage() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState("");
-  const [activeTab, setActiveTab] = useState<"residential" | "commercial" | "industrial">("residential");
+  const [activeTab, setActiveTab] = useState<"residential" | "commercial" | "inverter">("residential");
 
   const handleOpenQuote = (productName?: string) => {
     setSelectedProduct(productName || "Copper & Alkaline RO Purifier");
@@ -37,11 +37,11 @@ export default function HomePage() {
       desc: "Skid-mounted commercial RO systems for hotels, hospitals, clinics, and offices across Kerala.",
       highlight: "Stainless Steel Skid | Continuous TDS Monitor",
     },
-    industrial: {
-      badge: "Packaged STP / ETP & Softeners",
-      title: "Turnkey Industrial Water Treatment",
-      desc: "CPCB-compliant sewage & effluent treatment plants and FRP water softening systems for factories.",
-      highlight: "CPCB Compliant Output | MBBR Technology",
+    inverter: {
+      badge: "Pure Sine Wave Inverters & Li-Ion Batteries",
+      title: "Uninterrupted Power Backup Solutions",
+      desc: "High-capacity smart inverters and lithium/tubular batteries for homes, offices, and heavy commercial loads.",
+      highlight: "Pure Sine Wave | Long Backup Warranty",
     },
   };
 
@@ -80,14 +80,14 @@ export default function HomePage() {
                 <Activity className="w-3 h-3" /> Commercial Plants
               </button>
               <button
-                onClick={() => setActiveTab("industrial")}
+                onClick={() => setActiveTab("inverter")}
                 className={`px-3.5 py-1 rounded-full text-[11px] font-bold transition-all shrink-0 cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === "industrial"
+                  activeTab === "inverter"
                     ? "bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/30 scale-105"
                     : "bg-white/10 text-slate-300 hover:bg-white/20"
                 }`}
               >
-                <ShieldCheck className="w-3 h-3" /> STP / ETP Units
+                <Zap className="w-3 h-3" /> Inverter & Battery
               </button>
             </div>
 
@@ -318,7 +318,7 @@ export default function HomePage() {
                   name: "Inverter",
                   subtitle: "Tall Tubular & Next-Gen LiFePO4 Lithium Batteries for UPS",
                   badge: "Power Backup",
-                  image: "/vion_lfp12160_lithium_battery.jpg",
+                  image: "/inverter_category.jpg",
                   count: "Long Life Backup",
                 },
               ].map((cat) => (
