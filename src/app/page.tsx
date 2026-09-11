@@ -369,11 +369,11 @@ export default function HomePage() {
         {/* KEY METRICS COUNTER SECTION */}
         <StatsCounter />
 
-        {/* BOOK A SERVICE SECTION */}
-        <ServiceBookingForm />
-
         {/* TESTIMONIALS SECTION */}
         <Testimonials />
+
+        {/* BOOK A SERVICE SECTION */}
+        <ServiceBookingForm />
       </main>
 
       <Footer />

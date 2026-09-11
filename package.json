@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run build && npx cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 firebase-tools deploy"
+    "deploy": "npm run build && npx cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 npx firebase-tools deploy"
   },
   "dependencies": {
     "lucide-react": "^1.43.0",

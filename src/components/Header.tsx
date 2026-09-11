@@ -130,71 +130,54 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2.5 rounded-xl focus:outline-none transition-colors ${
+              className={`p-2 rounded-lg focus:outline-none transition-colors ${
                 isTransparent
-                  ? "text-white bg-white/10 hover:bg-white/20"
-                  : "text-slate-800 bg-slate-100 hover:bg-slate-200"
+                  ? "text-white hover:bg-white/10"
+                  : "text-slate-800 hover:bg-slate-100"
               }`}
               aria-label="Toggle Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6 text-cyan-400" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
-        {/* Ultra-Premium Mobile Menu Drawer */}
+        {/* Standard Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#06182C] text-white border-b border-cyan-500/20 px-4 pt-4 pb-6 space-y-4 shadow-2xl backdrop-blur-xl animate-in slide-in-from-top-2 duration-300">
-            <div className="flex flex-col space-y-1.5">
+          <div className="md:hidden bg-white text-slate-900 border-b border-slate-200 shadow-2xl animate-in slide-in-from-top-2 duration-200">
+            <div className="px-4 pt-3 pb-5 space-y-1">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
-                const IconComponent = link.icon;
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-bold transition-all ${
+                    className={`block px-4 py-3 rounded-lg text-base font-semibold transition-colors ${
                       isActive
-                        ? "text-cyan-300 bg-cyan-500/15 border border-cyan-400/30 shadow-sm"
-                        : "text-slate-200 hover:bg-slate-800/80 hover:text-white"
+                        ? "text-[#00C4DF] bg-cyan-50 font-bold"
+                        : "text-slate-800 hover:text-[#00C4DF] hover:bg-slate-50"
                     }`}
                   >
-                    <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${isActive ? "bg-cyan-500 text-slate-950" : "bg-slate-800 text-cyan-400"}`}>
-                        <IconComponent className="w-4 h-4" />
-                      </div>
-                      <span>{link.name}</span>
-                    </div>
-                    <ChevronRight className={`w-4 h-4 transition-transform ${isActive ? "text-cyan-400 translate-x-0.5" : "text-slate-500"}`} />
+                    {link.name}
                   </Link>
                 );
               })}
-            </div>
 
-            {/* Mobile Drawer Quick Action Buttons */}
-            <div className="pt-3 border-t border-slate-800 space-y-2.5">
-              <Link
-                href="/contact#booking"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#00C4DF] hover:bg-[#00B2CB] text-[#06182C] font-black rounded-xl shadow-md text-sm transition-transform active:scale-[0.99]"
-              >
-                <Wrench className="w-4 h-4" /> Book a Service
-              </Link>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="pt-3 mt-2 border-t border-slate-100 flex items-center justify-between gap-3">
+                <a
+                  href="tel:+919061548607"
+                  className="flex-1 text-center py-2.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-lg text-xs transition-colors"
+                >
+                  📞 Call Us
+                </a>
                 <a
                   href="https://wa.me/919061548607?text=Hi%20HomeTech,%20I%20want%20to%20inquire%20about%20Water%20Purifiers"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 font-bold rounded-xl text-xs hover:bg-emerald-600/30 transition-colors"
+                  className="flex-1 text-center py-2.5 px-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-lg text-xs transition-colors shadow-sm"
                 >
-                  <WhatsAppIcon className="w-3.5 h-3.5 fill-current" /> WhatsApp
-                </a>
-                <a
-                  href="tel:+919061548607"
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-cyan-600/20 border border-cyan-500/30 text-cyan-300 font-bold rounded-xl text-xs hover:bg-cyan-600/30 transition-colors"
-                >
-                  <Phone className="w-3.5 h-3.5" /> Call Sales
+                  💬 WhatsApp
                 </a>
               </div>
             </div>
