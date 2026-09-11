@@ -53,62 +53,62 @@ export default function QuoteModal({ isOpen, onClose, initialProduct = "" }: Quo
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-lg w-full overflow-hidden relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-lg w-full max-h-[90vh] flex flex-col overflow-hidden relative">
         {/* Modal Header */}
-        <div className="bg-[#0B192C] text-white p-6 relative">
+        <div className="bg-[#0B192C] text-white p-4 sm:p-5 relative shrink-0">
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-full hover:bg-slate-800 transition-colors"
+            className="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-full hover:bg-slate-800 transition-colors"
             aria-label="Close modal"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           <div className="pr-8">
-            <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-cyan-400">
               Fast Response Guaranteed
             </span>
-            <h3 className="text-2xl font-black text-white mt-1">Get a Free Quote & Water Test</h3>
-            <p className="text-slate-300 text-xs mt-1">
+            <h3 className="text-lg sm:text-2xl font-black text-white mt-0.5">Get a Free Quote & Water Test</h3>
+            <p className="text-slate-300 text-[11px] sm:text-xs mt-0.5 leading-snug">
               Tell us your requirements — our technical team in Calicut will call you back within 24 hours.
             </p>
           </div>
         </div>
 
         {/* Modal Body */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6 overflow-y-auto flex-1">
           {submitted ? (
-            <div className="text-center py-8 space-y-4">
-              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-10 h-10" />
+            <div className="text-center py-6 sm:py-8 space-y-4">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
               </div>
-              <h4 className="text-2xl font-bold text-slate-900">Thank You!</h4>
-              <p className="text-slate-600 text-sm max-w-xs mx-auto">
+              <h4 className="text-xl sm:text-2xl font-bold text-slate-900">Thank You!</h4>
+              <p className="text-slate-600 text-xs sm:text-sm max-w-xs mx-auto">
                 Your request has been received. Our water engineering team will reach out shortly.
               </p>
-              <div className="pt-4 flex flex-col gap-2">
+              <div className="pt-3 flex flex-col gap-2">
                 <button
                   onClick={handleWhatsAppDirect}
-                  className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl flex items-center justify-center gap-2"
+                  className="w-full py-2.5 sm:py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2"
                 >
-                  <WhatsAppIcon className="w-5 h-5 fill-current" /> Instant Connect on WhatsApp
+                  <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5 fill-current" /> Instant Connect on WhatsApp
                 </button>
                 <button
                   onClick={() => {
                     setSubmitted(false);
                     onClose();
                   }}
-                  className="w-full py-2.5 text-sm text-slate-500 hover:text-slate-800 font-semibold"
+                  className="w-full py-2 text-xs sm:text-sm text-slate-500 hover:text-slate-800 font-semibold"
                 >
                   Close Window
                 </button>
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
               {/* Full Name & Phone */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
                     Full Name *
