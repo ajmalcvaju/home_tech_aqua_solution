@@ -168,7 +168,7 @@ export default function HomePage() {
                     <img
                       src="/hero_family_purifier.png"
                       alt="Happy family enjoying pure water from HomeTech water purifier"
-                      className="w-full h-auto max-h-[380px] sm:max-h-[420px] object-cover mx-auto group-hover:scale-[1.02] transition-transform duration-500"
+                      className="w-full h-auto max-h-[480px] sm:max-h-[520px] object-cover mx-auto group-hover:scale-[1.02] transition-transform duration-500"
                     />
 
                     {/* Floating Warranty Pill Badge matching exact reference image design */}

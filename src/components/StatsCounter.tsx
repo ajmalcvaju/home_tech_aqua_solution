@@ -16,9 +16,9 @@ export default function StatsCounter() {
 
   useEffect(() => {
     const targets = {
-      commercial: 250,
-      residential: 600,
-      customers: 2000,
+      commercial: 1000,
+      residential: 6900,
+      customers: 12000,
       purity: 99.9,
     };
 
