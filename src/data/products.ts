@@ -579,7 +579,7 @@ export const PRODUCTS_DATA: Product[] = [
   },
   {
     id: "sediment-filter",
-    name: "Aqua Solve Sediment Filter",
+    name: "HighTech Sediment Filter",
     category: "Water Treatment Plant",
     subtitle: "Premium heavy-duty sand and sediment media filter vessel",
     badge: "Sediment Filter",
@@ -625,7 +625,7 @@ export const PRODUCTS_DATA: Product[] = [
   },
   {
     id: "carbon-filter",
-    name: "HighTech Carbon Filter",
+    name: "HomeTech Carbon Filter",
     category: "Water Treatment Plant",
     subtitle: "High-grade activated carbon filter for odor & chlorine.",
     badge: "Carbon Filter",

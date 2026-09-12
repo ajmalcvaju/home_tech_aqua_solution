@@ -280,7 +280,7 @@ export default function ProductsPage() {
                     <td className="py-4 px-6">Approx. 50%</td>
                   </tr>
                   <tr className="hover:bg-cyan-50/40 transition-colors">
-                    <td className="py-4 px-6 font-extrabold text-[#092540]">Aqua Solve Sediment Filter</td>
+                    <td className="py-4 px-6 font-extrabold text-[#092540]">  HomeTech Sediment Filter</td>
                     <td className="py-4 px-6">Sediment Filter</td>
                     <td className="py-4 px-6">Turbid / muddy well water</td>
                     <td className="py-4 px-6 font-bold text-cyan-700">Suspended Solids Only</td>
@@ -288,7 +288,7 @@ export default function ProductsPage() {
                     <td className="py-4 px-6">Backwash wash only</td>
                   </tr>
                   <tr className="hover:bg-cyan-50/40 transition-colors">
-                    <td className="py-4 px-6 font-extrabold text-[#092540]">Aqua Solve Iron Remover Filter</td>
+                    <td className="py-4 px-6 font-extrabold text-[#092540]">  HomeTech Iron Remover Filter</td>
                     <td className="py-4 px-6">Iron Filter</td>
                     <td className="py-4 px-6">Reddish well water</td>
                     <td className="py-4 px-6 font-bold text-cyan-700">Iron up to 5 PPM</td>
@@ -296,7 +296,7 @@ export default function ProductsPage() {
                     <td className="py-4 px-6">Backwash wash only</td>
                   </tr>
                   <tr className="hover:bg-cyan-50/40 transition-colors">
-                    <td className="py-4 px-6 font-extrabold text-[#092540]">Aqua Solve Carbon Filter</td>
+                    <td className="py-4 px-6 font-extrabold text-[#092540]">  HomeTech Carbon Filter</td>
                     <td className="py-4 px-6">Carbon Filter</td>
                     <td className="py-4 px-6">Foul odor & chlorine water</td>
                     <td className="py-4 px-6 font-bold text-cyan-700">Organic Impurities</td>
@@ -304,7 +304,7 @@ export default function ProductsPage() {
                     <td className="py-4 px-6">Backwash wash only</td>
                   </tr>
                   <tr className="hover:bg-cyan-50/40 transition-colors">
-                    <td className="py-4 px-6 font-extrabold text-[#092540]">Aqua Solve Commercial RO Plant</td>
+                    <td className="py-4 px-6 font-extrabold text-[#092540]">  HomeTech Commercial RO Plant</td>
                     <td className="py-4 px-6">Commercial RO</td>
                     <td className="py-4 px-6">High TDS Borewell / Saline</td>
                     <td className="py-4 px-6 font-bold text-cyan-700">2500+ PPM</td>
@@ -320,7 +320,7 @@ export default function ProductsPage() {
                     <td className="py-4 px-6">Approx. 45%</td>
                   </tr>
                   <tr className="hover:bg-cyan-50/40 transition-colors">
-                    <td className="py-4 px-6 font-extrabold text-[#092540]">Aqua Solve STP / ETP Plants</td>
+                    <td className="py-4 px-6 font-extrabold text-[#092540]">  HomeTech STP / ETP Plants</td>
                     <td className="py-4 px-6">Packaged STP / ETP</td>
                     <td className="py-4 px-6">Industrial & Domestic Sewage</td>
                     <td className="py-4 px-6 font-bold text-cyan-700">Unlimited Raw Effluent</td>
