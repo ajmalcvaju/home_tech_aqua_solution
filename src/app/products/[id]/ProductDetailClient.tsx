@@ -94,7 +94,13 @@ export default function ProductDetailClient({ productId }: ProductDetailClientPr
               </h2>
 
               <div className="bg-emerald-50/80 border border-emerald-200/80 rounded-2xl p-4 sm:p-5 flex items-center gap-4 flex-wrap">
-                <span className="text-2xl sm:text-3xl font-black text-[#10B981]">
+                <span
+                  className={`${
+                    (product.price || "").length > 10
+                      ? "text-lg sm:text-xl font-black"
+                      : "text-2xl sm:text-3xl font-black"
+                  } text-[#10B981]`}
+                >
                   {product.price || "Get Quote"}
                 </span>
                 {product.mrp && (

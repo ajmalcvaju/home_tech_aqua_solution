@@ -93,7 +93,13 @@ export default function ProductCard({ product, onEnquire }: ProductCardProps) {
       <div className="pt-3 mt-2 border-t border-slate-100 space-y-2.5">
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-baseline gap-1.5 flex-wrap">
-            <span className="text-xl sm:text-2xl font-black text-[#0B3C70] tracking-tight">
+            <span
+              className={`${
+                (product.price || "").length > 10
+                  ? "text-xs sm:text-sm font-black leading-tight"
+                  : "text-lg sm:text-xl font-black"
+              } text-[#0B3C70] tracking-tight`}
+            >
               {product.price || "Get Quote"}
             </span>
             {product.mrp && (

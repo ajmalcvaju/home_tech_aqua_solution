@@ -332,8 +332,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Product Category Cards Grid - 6 Columns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+            {/* Product Category Cards Grid - 5 Columns */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
               {[
                 {
                   id: "domestic-purifier",
@@ -374,14 +374,6 @@ export default function HomePage() {
                   badge: "Power Backup",
                   image: "/inverter_category.jpg",
                   count: "Sine Wave UPS",
-                },
-                {
-                  id: "battery",
-                  name: "Battery",
-                  subtitle: "Tall Tubular & Next-Gen LiFePO4 Lithium Batteries for Home UPS",
-                  badge: "Battery Storage",
-                  image: "/envaro_en150_c10_tubular_battery.jpg",
-                  count: "Tubular & Lithium",
                 },
               ].map((cat) => (
                 <Link

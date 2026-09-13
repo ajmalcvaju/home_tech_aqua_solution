@@ -219,6 +219,150 @@ export const PRODUCTS_DATA: Product[] = [
     image: "/purella_supra_plus.jpg",
   },
   {
+    id: "olivar-cyclone-black-copper-alkaline-ro",
+    name: "Olivar Cyclone Black & Copper RO + UV + UF Water Purifier",
+    category: "Domestic Purifier",
+    subtitle: "ISI Certified Multi-Stage RO + UV + UF with Copper & Alkaline Minerals",
+    badge: "ISI Certified",
+    price: "₹14,990",
+    mrp: "₹21,000",
+    description:
+      "Olivar Cyclone RO Water Purifier featuring ISI certified multi-stage RO + UV + UF purification enriched with Active Copper & Alkaline minerals. Designed in a premium black and copper dual-tone cabinet with smart status indicator panel and high-capacity storage tank.",
+    highlights: [
+      "Certification: ISI Certified Pure Water Quality",
+      "Purification: Multi-Stage RO + UV + UF + Active Copper & Alkaline",
+      "Special Price: ₹14,990 (MRP ₹21,000)",
+      "Warranty: 3-Year Warranty | Heavy-Duty Booster Pump",
+    ],
+    specs: {
+      technology: "RO + UV + UF + Active Copper + Alkaline",
+      capacity: "12-15 LPH Flow | Food-Grade ABS Storage",
+      warranty: "3 Yrs Warranty",
+      idealFor: "Homes & Apartments (Borewell & Municipal Water)",
+    },
+    image: "/olivar_cyclone_copper_ro.jpg",
+  },
+  {
+    id: "olivar-cyclone-white-green-ro",
+    name: "Olivar Cyclone White & Green RO + UV + UF Water Purifier",
+    category: "Domestic Purifier",
+    subtitle: "ISI Certified Multi-Stage RO + UV + UF with Copper & Alkaline Minerals",
+    badge: "ISI Certified",
+    price: "₹14,999",
+    mrp: "₹21,000",
+    description:
+      "Olivar Cyclone White & Green RO Water Purifier featuring ISI certified multi-stage RO + UV + UF purification enriched with Active Copper & Alkaline minerals. Housed in an elegant pristine white cabinet with vibrant emerald green accent trim and food-grade storage tank.",
+    highlights: [
+      "Certification: ISI Certified Pure Water Quality",
+      "Purification: Multi-Stage RO + UV + UF + Active Copper & Alkaline",
+      "Special Price: ₹14,999 (MRP ₹21,000)",
+      "Warranty: 1-Year Warranty | Heavy-Duty Booster Pump",
+    ],
+    specs: {
+      technology: "RO + UV + UF + Active Copper + Alkaline",
+      capacity: "12-15 LPH Flow | Food-Grade ABS Storage",
+      warranty: "1 Yr Warranty",
+      idealFor: "Homes & Apartments (Borewell & Municipal Water)",
+    },
+    image: "/olivar_cyclone_white_green_ro.jpg",
+  },
+  {
+    id: "olivar-cyclone-white-blue-ro",
+    name: "Olivar Cyclone White & Blue RO + UV + UF Water Purifier",
+    category: "Domestic Purifier",
+    subtitle: "ISI Certified Multi-Stage RO + UV + UF with Copper & Alkaline Minerals",
+    badge: "ISI Certified",
+    price: "₹14,999",
+    mrp: "₹21,000",
+    description:
+      "Olivar Cyclone White & Blue RO Water Purifier featuring ISI certified multi-stage RO + UV + UF purification enriched with Active Copper & Alkaline minerals. Housed in a clean pristine white cabinet with sky blue accent panel and food-grade storage tank.",
+    highlights: [
+      "Certification: ISI Certified Pure Water Quality",
+      "Purification: Multi-Stage RO + UV + UF + Active Copper & Alkaline",
+      "Special Price: ₹14,999 (MRP ₹21,000)",
+      "Warranty: 1-Year Warranty | Heavy-Duty Booster Pump",
+    ],
+    specs: {
+      technology: "RO + UV + UF + Active Copper + Alkaline",
+      capacity: "12-15 LPH Flow | Food-Grade ABS Storage",
+      warranty: "1 Yr Warranty",
+      idealFor: "Homes & Apartments (Borewell & Municipal Water)",
+    },
+    image: "/olivar_cyclone_white_blue_ro.jpg",
+  },
+  {
+    id: "olivar-storm-white-copper-alkaline-ro",
+    name: "Olivar Storm White Copper & Alkaline RO + UV + UF Water Purifier",
+    category: "Domestic Purifier",
+    subtitle: "ISI Certified Multi-Stage RO + UV + UF with Copper & Alkaline Minerals",
+    badge: "ISI Certified",
+    price: "₹14,999",
+    mrp: "₹21,000",
+    description:
+      "Olivar Storm White RO Water Purifier featuring ISI certified multi-stage RO + UV + UF purification enriched with Active Copper & Alkaline minerals. Designed in an elegant pristine white and rose-gold accent cabinet with smart status panel and high-capacity food-grade storage tank.",
+    highlights: [
+      "Certification: ISI Certified Pure Water Quality",
+      "Purification: Multi-Stage RO + UV + UF + Active Copper & Alkaline",
+      "Special Price: ₹14,999 (MRP ₹21,000)",
+      "Warranty: 1-Year Warranty | Heavy-Duty Booster Pump",
+    ],
+    specs: {
+      technology: "RO + UV + UF + Active Copper + Alkaline",
+      capacity: "12-15 LPH Flow | Food-Grade ABS Storage",
+      warranty: "1 Yr Warranty",
+      idealFor: "Homes & Apartments (Borewell & Municipal Water)",
+    },
+    image: "/olivar_storm_copper_ro.jpg",
+  },
+  {
+    id: "olivar-storm-black-copper-alkaline-ro",
+    name: "Olivar Storm Black Copper & Alkaline RO + UV + UF Water Purifier",
+    category: "Domestic Purifier",
+    subtitle: "ISI Certified Multi-Stage RO + UV + UF with Copper & Alkaline Minerals",
+    badge: "ISI Certified",
+    price: "₹14,999",
+    mrp: "₹21,000",
+    description:
+      "Olivar Storm Black RO Water Purifier featuring ISI certified multi-stage RO + UV + UF purification enriched with Active Copper & Alkaline minerals. Designed in a sleek matte black and rose-gold accent cabinet with smart status panel and high-capacity food-grade storage tank.",
+    highlights: [
+      "Certification: ISI Certified Pure Water Quality",
+      "Purification: Multi-Stage RO + UV + UF + Active Copper & Alkaline",
+      "Special Price: ₹14,999 (MRP ₹21,000)",
+      "Warranty: 1-Year Warranty | Heavy-Duty Booster Pump",
+    ],
+    specs: {
+      technology: "RO + UV + UF + Active Copper + Alkaline",
+      capacity: "12-15 LPH Flow | Food-Grade ABS Storage",
+      warranty: "1 Yr Warranty",
+      idealFor: "Homes & Apartments (Borewell & Municipal Water)",
+    },
+    image: "/olivar_storm_black_copper_ro.jpg",
+  },
+  {
+    id: "olivar-under-sink-copper-alkaline-ro",
+    name: "Olivar Under-Sink RO + UV + UF Water Purifier with Tank & Faucet",
+    category: "Domestic Purifier",
+    subtitle: "Under-Counter Space-Saving RO System with Pressure Storage Tank & Chrome Faucet",
+    badge: "Under-Sink RO",
+    price: "₹17,000",
+    mrp: "₹23,500",
+    description:
+      "Olivar Under-Sink RO Water Purifier designed for modular kitchen under-counter installation. Features ISI certified multi-stage RO + UV + UF purification enriched with Active Copper & Alkaline minerals, hydro-pneumatic pressure storage tank, and premium countertop chrome faucet.",
+    highlights: [
+      "Design: Under-Sink / Under-Counter Space-Saving Installation",
+      "Storage Tank: External High-Pressure Hydro-Pneumatic Storage Tank",
+      "Faucet: Includes Countertop Chrome Goose-Neck Tap",
+      "Special Price: ₹17,000 | 3-Year Warranty",
+    ],
+    specs: {
+      technology: "Under-Sink RO + UV + UF + Active Copper + Alkaline",
+      capacity: "15 LPH Flow | External Hydro-Pneumatic Pressure Tank",
+      warranty: "3 Yrs Warranty",
+      idealFor: "Modern Modular Kitchens (Under-Counter Installation)",
+    },
+    image: "/olivar_undersink_copper_ro.jpg",
+  },
+  {
     id: "blue-mount-aura-white-blue",
     name: "Blue Mount Aura White & Blue with Smart LED",
     category: "Domestic Purifier",
@@ -584,14 +728,14 @@ export const PRODUCTS_DATA: Product[] = [
     category: "Water Treatment Plant",
     subtitle: "Premium heavy-duty sand and sediment media filter vessel",
     badge: "Sediment Filter",
-    price: "₹24,000",
+    price: "₹20,000",
     description:
       "Premium heavy-duty sand and sediment media filter vessel. Removes dust, silt, clay, mud, and all suspended particles from incoming water supply.",
     highlights: [
       "Vessel: FRP pressure tank",
       "Operation: Multiport Valve",
       "Service: Easy manual backwash",
-      "Offer Price: ₹24,000",
+      "Offer Price: ₹20,000",
     ],
     specs: {
       technology: "Turbid / Muddy Sand Media",
@@ -607,7 +751,7 @@ export const PRODUCTS_DATA: Product[] = [
     category: "Water Treatment Plant",
     subtitle: "Specialized catalytic manganese dioxide media filter.",
     badge: "Iron Remover",
-    price: "₹26,000",
+    price: "₹24,000 - ₹26,000",
     description:
       "Specialized catalytic manganese dioxide media filter for removing high dissolved iron content, yellow stains, and metallic odor.",
     highlights: [
@@ -629,7 +773,7 @@ export const PRODUCTS_DATA: Product[] = [
     category: "Water Treatment Plant",
     subtitle: "High-grade activated carbon filter for odor & chlorine.",
     badge: "Carbon Filter",
-    price: "₹27,000",
+    price: "₹25,000 - ₹28,000",
     description:
       "High-grade activated carbon filter. Adsorbs chlorine, organic pesticides, bad taste, odor, and dissolved iron impurities from supply water.",
     highlights: [
@@ -697,6 +841,7 @@ export const PRODUCTS_DATA: Product[] = [
     category: "RO Treatment Plant",
     subtitle: "25 LPH Heavy-Duty Frame Mounted Commercial RO with PP, CTO & GAC Pre-Filtration",
     badge: "25 LPH Commercial RO",
+    price: "₹20,000",
     description:
       "Sunexa 25 LPH Heavy-Duty Commercial Water Purification System built on a powder-coated steel frame. Equipped with 3 jumbo pre-filtration canisters (Polypropylene Sediment PP, Sintered Activated Carbon Block CTO, and Granular Activated Carbon GAC) combined with high-flow 25 LPH RO membranes for hotels, restaurants, cafes, hospitals, schools, and commercial offices.",
     highlights: [
@@ -715,11 +860,35 @@ export const PRODUCTS_DATA: Product[] = [
     image: "/sunexa_commercial_ro_system.jpg",
   },
   {
+    id: "olivar-25lph-commercial-ro-plant",
+    name: "Olivar International 25 LPH Commercial RO Plant",
+    category: "RO Treatment Plant",
+    subtitle: "25 LPH Heavy-Duty Frame Mounted Commercial RO with PP, CTO & GAC Jumbo Pre-Filtration",
+    badge: "25 LPH Commercial",
+    price: "₹20,000",
+    description:
+      "Olivar International 25 LPH Commercial RO Plant built on a heavy-duty powder-coated steel frame. Equipped with 3-stage jumbo pre-filtration canisters (Polypropylene PPF, Granular Carbon GAC, Sintered Carbon CTO) paired with high-capacity RO membranes. Designed for restaurants, offices, schools, and commercial establishments.",
+    highlights: [
+      "Capacity: 25 LPH (Litres Per Hour) Commercial Purification",
+      "Pre-Filtration: 3-Stage Jumbo Canisters (PPF Sediment + GAC + CTO Carbon Block)",
+      "Frame: Heavy-Duty Wall / Floor Mount Steel Skid Frame",
+      "Special Offer: ₹20,000 | 1-Year Commercial Warranty",
+    ],
+    specs: {
+      technology: "Multi-Stage Commercial RO + PPF + GAC + CTO Jumbo Filtration",
+      capacity: "25 LPH (Litres Per Hour)",
+      warranty: "1 Year Commercial Warranty",
+      idealFor: "Cafes, Restaurants, Offices, Schools & Hospitals",
+    },
+    image: "/olivar_25lph_commercial_ro.jpg",
+  },
+  {
     id: "sunexa-50-lph-commercial-ro-purification-system",
     name: "Sunexa 50 LPH Commercial Multi-Stage RO Purification System",
     category: "RO Treatment Plant",
     subtitle: "50 LPH Heavy-Duty Frame Mounted Commercial RO with PP, CTO & GAC Pre-Filtration",
     badge: "50 LPH Commercial RO",
+    price: "₹30,000 - ₹40,000",
     description:
       "Sunexa 50 LPH Heavy-Duty Commercial Water Purification System built on a powder-coated steel frame. Equipped with 3 jumbo pre-filtration canisters (Polypropylene Sediment PP, Sintered Activated Carbon Block CTO, and Granular Activated Carbon GAC) combined with twin high-flow 50 LPH RO membranes for hotels, restaurants, cafes, hospitals, schools, and commercial offices.",
     highlights: [
@@ -738,11 +907,58 @@ export const PRODUCTS_DATA: Product[] = [
     image: "/sunexa_50lph_commercial_ro_system.jpg",
   },
   {
+    id: "olivar-50lph-commercial-ro-plant",
+    name: "Olivar International 50 LPH Commercial RO Plant",
+    category: "RO Treatment Plant",
+    subtitle: "50 LPH Heavy-Duty Vertical Frame Commercial RO with 20-Inch Jumbo Pre-Filtration",
+    badge: "50 LPH Commercial",
+    price: "₹30,000 - ₹40,000",
+    description:
+      "Olivar International 50 LPH Commercial RO Plant built on a heavy-duty vertical powder-coated steel frame. Features 20-inch tall 3-stage jumbo pre-filtration canisters (Polypropylene PPF, Granular Carbon GAC, Sintered Carbon CTO) paired with twin high-capacity 50 LPH RO membranes for commercial buildings, institutions, cafes, and hospitals.",
+    highlights: [
+      "Capacity: 50 LPH (Litres Per Hour) High-Flow Rate",
+      "Pre-Filtration: 20-Inch Tall 3-Stage Jumbo Canisters (PPF + GAC + CTO)",
+      "Frame: Heavy-Duty Vertical Floor-Mount Steel Skid Frame",
+      "Offer Price Range: ₹30,000 - ₹40,000 | 1-Year Commercial Warranty",
+    ],
+    specs: {
+      technology: "Multi-Stage Commercial RO + 20-Inch PPF + GAC + CTO Jumbo Filtration",
+      capacity: "50 LPH (Litres Per Hour)",
+      warranty: "1 Year Commercial Warranty",
+      idealFor: "Hotels, Restaurants, Commercial Buildings, Schools & Hospitals",
+    },
+    image: "/olivar_50lph_commercial_ro.jpg",
+  },
+  {
+    id: "olivar-100lph-commercial-ro-plant",
+    name: "Olivar International 100 LPH Commercial RO Plant",
+    category: "RO Treatment Plant",
+    subtitle: "100 LPH Heavy-Duty Industrial Skid RO with 3 Pressure Gauges & 20-Inch Jumbo Pre-Filtration",
+    badge: "100 LPH Commercial",
+    price: "₹50,000 - ₹60,000",
+    description:
+      "Olivar International 100 LPH Industrial Heavy-Duty Commercial RO Plant built on a vertical powder-coated steel skid frame. Features 3 precision stage pressure gauges for real-time system monitoring, 20-inch 3-stage jumbo pre-filtration canisters (Polypropylene PPF, Granular Carbon GAC, Sintered Carbon CTO), and high-capacity quad RO membranes.",
+    highlights: [
+      "Capacity: 100 LPH (Litres Per Hour) Industrial High-Flow Production",
+      "Monitoring: 3 Built-In Stage Pressure Gauges (Pre-Filter, Pump & Membrane)",
+      "Pre-Filtration: 20-Inch 3-Stage Jumbo Canisters (PPF + GAC + CTO)",
+      "Offer Price Range: ₹50,000 - ₹60,000 | 1-Year Commercial Warranty",
+    ],
+    specs: {
+      technology: "Heavy-Duty Commercial RO + 3 Stage Pressure Gauges + PPF/GAC/CTO",
+      capacity: "100 LPH (Litres Per Hour)",
+      warranty: "1 Year Industrial/Commercial Warranty",
+      idealFor: "Colleges, Hotels, Bottling Units, Hospitals & Large Commercial Facilities",
+    },
+    image: "/olivar_100lph_commercial_ro.jpg",
+  },
+  {
     id: "flonix-100-lph-commercial-ro-purification-system",
     name: "Flonix 100 LPH Multi-Stage Heavy Duty Commercial RO System",
     category: "RO Treatment Plant",
     subtitle: "100 LPH Industrial Heavy-Duty Skid RO with 3 Pressure Gauges & PPF, GAC, CTO Pre-Filtration",
     badge: "100 LPH Commercial RO",
+    price: "₹50,000 - ₹60,000",
     description:
       "Flonix 100 LPH Industrial Heavy-Duty Commercial RO Water Purification System engineered with 3 precision pressure gauges (Pre-Filter, Pump & Membrane Pressure Monitoring), powder-coated steel skid frame, and 3 jumbo filtration canisters (PPF Polypropylene, GAC Coconut Shell Carbon & CTO Carbon Block). Features quad high-rejection 100 LPH RO membranes for commercial food processing, hotels, institutions, and industrial plants.",
     highlights: [
@@ -762,13 +978,15 @@ export const PRODUCTS_DATA: Product[] = [
   },
   {
     id: "flonix-premium-orium-advanced-water-purification-system",
-    name: "Flonix Premium Orium Advanced Commercial Water Purification System",
+    name: "Flonix Premium Orium 25 LPH Advanced Commercial Water Purification System",
     category: "RO Treatment Plant",
-    subtitle: "Advanced Wall & Floor Mount Commercial Purifier with CTO, GAC & PPF Tri-Canisters",
-    badge: "Advanced Purification",
+    subtitle: "25 LPH Advanced Wall & Floor Mount Commercial Purifier with CTO, GAC & PPF Tri-Canisters",
+    badge: "25 LPH Commercial RO",
+    price: "₹22,000 - ₹24,000",
     description:
-      "Flonix Premium Orium Advanced Commercial Water Purification System built with high-efficiency CTO Sintered Carbon Block, GAC Coconut Shell Activated Carbon, and PPF Polypropylene Sediment pre-filtration. Designed in a compact dark-edition cabinet for high-purity water supply in commercial establishments, labs, clinics, and offices.",
+      "Flonix Premium Orium 25 LPH Advanced Commercial Water Purification System built with high-efficiency CTO Sintered Carbon Block, GAC Coconut Shell Activated Carbon, and PPF Polypropylene Sediment pre-filtration. Designed in a compact dark-edition cabinet for high-purity water supply in commercial establishments, labs, clinics, and offices.",
     highlights: [
+      "Capacity: 25 LPH (Litres Per Hour) Commercial Flow Rate",
       "Technology: Advanced Tri-Canister (CTO + GAC + PPF) RO Purification",
       "Design: Heavy-Duty Enclosed Dark Frame Cabinet with Wall/Floor Mount Options",
       "Filtration: CTO Sintered Carbon + GAC Coconut Shell + PPF Sediment",
@@ -776,7 +994,7 @@ export const PRODUCTS_DATA: Product[] = [
     ],
     specs: {
       technology: "Advanced Tri-Canister RO + CTO + GAC + PPF",
-      capacity: "High Capacity Flow",
+      capacity: "25 LPH Flow Rate",
       warranty: "1 Year Warranty",
       idealFor: "Commercial Offices, Labs, Clinics, Cafes & Premium Outlets",
     },
@@ -1859,6 +2077,98 @@ export const PRODUCTS_DATA: Product[] = [
       idealFor: "Homes, Shops, Commercial Outlets & Inverter UPS Installations",
     },
     image: "/massimo_it500_tall_tubular_battery.jpg",
+  },
+  {
+    id: "luminous-inverlast-ilst12042-100ah-battery",
+    name: "Luminous Inverlast ILST 12042 100Ah Short Tubular Inverter Battery",
+    category: "Battery",
+    subtitle: "100Ah Tubular Plate Heavy Duty Long Life Inverter & UPS Battery",
+    badge: "42 Months Warranty",
+    price: "₹15,000",
+    description:
+      "Luminous Inverlast ILST 12042 high-performance 100Ah Short Tubular Inverter Battery engineered for long power backup life and low maintenance performance. Features heavy-duty tubular plate technology, ceramic water level indicators, high charge acceptance, and a 42-month manufacturer warranty.",
+    highlights: [
+      "Capacity & Model: 100Ah Tubular Plate (Model ILST 12042)",
+      "Warranty: 42 Months Manufacturer Warranty",
+      "Features: Long Life, Low Maintenance & High Charge Acceptance",
+      "Price: ₹15,000",
+    ],
+    specs: {
+      technology: "Short Tubular Lead-Acid Battery",
+      capacity: "100Ah",
+      warranty: "42 Months Warranty",
+      idealFor: "Homes, Apartments, Shops & Small Inverter / UPS Systems",
+    },
+    image: "/luminous_inverlast_ilst12042_battery.jpg",
+  },
+  {
+    id: "exide-xpress-heavy-duty-battery",
+    name: "Exide Xpress Heavy Duty Commercial & Vehicle Inverter Battery",
+    category: "Battery",
+    subtitle: "Maintenance-Free Heavy Duty Commercial Inverter & Vehicle Power Battery",
+    badge: "42 Months Warranty",
+    price: "₹15,500",
+    description:
+      "Exide Xpress Heavy Duty Commercial & Vehicle Battery engineered with hybrid alloy grids for extra vibration resistance, high cranking power, and maintenance-free operation. Built to withstand extreme power cuts and tough operating conditions with a 42-month manufacturer warranty.",
+    highlights: [
+      "Technology: Hybrid Alloy Heavy-Duty Grid Plate Architecture",
+      "Warranty: 42 Months Manufacturer Warranty",
+      "Maintenance: Low Maintenance Design with High Cranking Power",
+      "Price: ₹15,500",
+    ],
+    specs: {
+      technology: "Maintenance-Free Hybrid Alloy Battery",
+      capacity: "Heavy Duty Capacity",
+      warranty: "42 Months Warranty",
+      idealFor: "Commercial Inverters, Heavy Generators, UPS Systems & LCVs",
+    },
+    image: "/exide_xpress_heavy_duty_battery.jpg",
+  },
+  {
+    id: "tata-green-roadstar-heavy-duty-battery",
+    name: "TATA Green Batteries Road Star Heavy Duty Commercial Battery (105E41R CV)",
+    category: "Battery",
+    subtitle: "Japanese GS Yuasa Technology Heavy Duty Commercial Vehicle & Inverter Battery",
+    badge: "GS Yuasa Tech",
+    price: "₹16,000",
+    description:
+      "TATA Green Batteries Road Star (Model 105E41R CV) engineered with Japanese GS Yuasa technology for high vibration resistance, long discharge life, and superior charge acceptance. Features min/max water level indicators and heavy-duty grid plates for long power backup and heavy commercial vehicle performance.",
+    highlights: [
+      "Technology: Japanese GS Yuasa Tech Grid Alloy Architecture",
+      "Model: TATA Green Road Star (105E41R CV Series)",
+      "Performance: High Cranking Power, Low Self-Discharge & Extended Lifespan",
+      "Price: ₹16,000",
+    ],
+    specs: {
+      technology: "Japanese GS Yuasa Alloy Battery",
+      capacity: "105E41R CV Heavy Duty Capacity",
+      warranty: "Manufacturer Warranty",
+      idealFor: "Commercial Inverters, Heavy Duty Commercial Vehicles & Generators",
+    },
+    image: "/tata_green_roadstar_battery.jpg",
+  },
+  {
+    id: "redarc-lithium-12v100ah-battery",
+    name: "REDARC 12V 100Ah LiFePO4 Lithium Inverter & Storage Battery",
+    category: "Battery",
+    subtitle: "Heavy Duty 12.8V 100Ah LiFePO4 Ultra-Fast Charge Lithium Battery",
+    badge: "LiFePO4 Lithium",
+    price: "₹15,500",
+    description:
+      "REDARC 12V 100Ah LiFePO4 Lithium Iron Phosphate Battery engineered for heavy duty home UPS, solar power storage, and commercial inverter backup. Ultra-fast charging speed, zero maintenance, integrated smart BMS protection against overcharging & short circuits, and 3x longer cycle life than traditional batteries.",
+    highlights: [
+      "Technology: LiFePO4 Lithium Iron Phosphate Architecture",
+      "Capacity: 12.8V 100Ah Deep Cycle Power Storage",
+      "BMS Protection: Integrated Smart BMS Temperature & Voltage Safety",
+      "Price: ₹15,500",
+    ],
+    specs: {
+      technology: "LiFePO4 Lithium-Ion Battery Architecture",
+      capacity: "12V 100Ah",
+      warranty: "Manufacturer Warranty",
+      idealFor: "Modern Home UPS, Solar Storage, Off-Grid Power & Inverters",
+    },
+    image: "/redarc_lithium_12v100ah_battery.jpg",
   },
   {
     id: "luminous-eco-volt-neo-1050-sine-wave-inverter",
