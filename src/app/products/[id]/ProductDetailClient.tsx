@@ -30,9 +30,13 @@ export default function ProductDetailClient({ productId }: ProductDetailClientPr
 
   const product = PRODUCTS_DATA.find((p) => p.id === productId) || PRODUCTS_DATA[0];
 
-  const relatedProducts = PRODUCTS_DATA.filter(
-    (p) => p.id !== product.id && (p.category === product.category || p.category === "Domestic Purifier")
-  ).slice(0, 4);
+  const sameCategoryProducts = PRODUCTS_DATA.filter(
+    (p) => p.id !== product.id && p.category === product.category
+  );
+  const otherProducts = PRODUCTS_DATA.filter(
+    (p) => p.id !== product.id && p.category !== product.category
+  );
+  const relatedProducts = [...sameCategoryProducts, ...otherProducts].slice(0, 4);
 
   const discountBadge = getDiscountPercentage(product.price, product.mrp);
 
@@ -150,34 +154,38 @@ export default function ProductDetailClient({ productId }: ProductDetailClientPr
                 </div>
               </div>
 
-              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <button
-                  onClick={() => setIsCallbackOpen(true)}
-                  className="bg-[#0B192C] hover:bg-slate-800 text-white font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2.5 cursor-pointer active:scale-95 flex-1"
-                >
-                  <Phone className="w-4 h-4 text-cyan-400" />
-                  <span>Request a Callback</span>
-                </button>
-
+              <div className="pt-4 space-y-3">
+                {/* Primary WhatsApp Action */}
                 <a
                   href={`https://wa.me/919061548607?text=${encodeURIComponent(
                     `Hi HomeTech Aqua Solutions, I am interested in ${product.name} (${product.price || ""}). Please provide more details.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#10B981] hover:bg-[#059669] text-white font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2.5 cursor-pointer active:scale-95 flex-1"
+                  className="w-full bg-gradient-to-r from-[#10B981] to-[#059669] hover:from-[#059669] hover:to-[#047857] text-white font-extrabold text-sm sm:text-base py-3.5 px-6 rounded-2xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-3 cursor-pointer active:scale-[0.99] whitespace-nowrap"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <MessageCircle className="w-5 h-5 fill-white shrink-0" />
                   <span>WhatsApp Inquiry</span>
                 </a>
 
-                <a
-                  href="tel:+919061548607"
-                  className="bg-[#0077B6] hover:bg-[#023E8A] text-white font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2.5 cursor-pointer active:scale-95 flex-1"
-                >
-                  <Phone className="w-4 h-4 fill-white" />
-                  <span>Call +91 90615 48607</span>
-                </a>
+                {/* Secondary Call Actions Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <button
+                    onClick={() => setIsCallbackOpen(true)}
+                    className="bg-[#0B192C] hover:bg-slate-800 text-white font-extrabold text-xs sm:text-sm py-3.5 px-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-95 whitespace-nowrap"
+                  >
+                    <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
+                    <span>Request a Callback</span>
+                  </button>
+
+                  <a
+                    href="tel:+919061548607"
+                    className="bg-[#0077B6] hover:bg-[#023E8A] text-white font-extrabold text-xs sm:text-sm py-3.5 px-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-95 whitespace-nowrap"
+                  >
+                    <Phone className="w-4 h-4 fill-white shrink-0" />
+                    <span>Call +91 90615 48607</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -187,7 +195,7 @@ export default function ProductDetailClient({ productId }: ProductDetailClientPr
         <section className="py-16 bg-white border-t border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B192C] text-center mb-10 tracking-tight">
-              Related Water Systems
+              Related Products & Systems
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
