@@ -116,6 +116,16 @@ export default function ServicesPage() {
             <p className="text-slate-300 text-base max-w-2xl mx-auto leading-relaxed">
               Backbone support by certified technicians — from doorstep home purifier servicing to full industrial STP/ETP maintenance contracts.
             </p>
+
+            <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="tel:7356125838"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-[#06182C] font-black text-sm transition-all shadow-xl shadow-cyan-500/20 hover:scale-105 cursor-pointer"
+              >
+                <Phone className="w-4 h-4 fill-current" />
+                <span>Contact Us: 7356125838</span>
+              </a>
+            </div>
           </div>
         </section>
 
@@ -301,7 +311,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Book Doorstep Service Form */}
-        <ServiceBookingForm />
+        <ServiceBookingForm isServiceMode={true} />
       </main>
 
       <Footer />
@@ -311,6 +321,7 @@ export default function ServicesPage() {
         isOpen={isQuoteOpen}
         onClose={() => setIsQuoteOpen(false)}
         initialProduct={selectedService}
+        isServiceMode={true}
       />
     </div>
   );

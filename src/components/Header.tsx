@@ -118,12 +118,18 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
 
           {/* Right Cyan Pill CTA Button */}
           <div className="hidden lg:flex items-center space-x-3">
-            <Link
-              href="/contact#booking"
+            <button
+              onClick={() => {
+                if (onOpenQuoteModal) {
+                  onOpenQuoteModal();
+                } else {
+                  window.location.href = "/contact#booking";
+                }
+              }}
               className="px-6 py-2.5 text-sm font-extrabold text-[#06182C] bg-[#00C4DF] hover:bg-[#00B2CB] rounded-full transition-all shadow-md hover:shadow-lg hover:scale-[1.02] cursor-pointer"
             >
-              Book a Service
-            </Link>
+              Get a Quote
+            </button>
           </div>
 
           {/* Mobile menu trigger */}
@@ -145,7 +151,7 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
         {/* Standard Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white text-slate-900 border-b border-slate-200 shadow-2xl animate-in slide-in-from-top-2 duration-200">
-            <div className="px-4 pt-3 pb-5 space-y-1">
+            <div className="px-4 pt-3 pb-5 space-y-2">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -164,21 +170,33 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
                 );
               })}
 
-              <div className="pt-3 mt-2 border-t border-slate-100 flex items-center justify-between gap-3">
-                <a
-                  href="tel:+919061548607"
-                  className="flex-1 text-center py-2.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-lg text-xs transition-colors"
+              <div className="pt-3 border-t border-slate-100 space-y-2">
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    if (onOpenQuoteModal) onOpenQuoteModal();
+                  }}
+                  className="w-full text-center py-3 px-4 bg-[#00C4DF] hover:bg-[#00B2CB] text-[#06182C] font-extrabold rounded-xl text-sm transition-all shadow-sm cursor-pointer"
                 >
-                  📞 Call Us
-                </a>
-                <a
-                  href="https://wa.me/919061548607?text=Hi%20HomeTech,%20I%20want%20to%20inquire%20about%20Water%20Purifiers"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 text-center py-2.5 px-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-lg text-xs transition-colors shadow-sm"
-                >
-                  💬 WhatsApp
-                </a>
+                  Get a Quote
+                </button>
+
+                <div className="flex items-center justify-between gap-3 pt-1">
+                  <a
+                    href="tel:+919061548607"
+                    className="flex-1 text-center py-2.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-lg text-xs transition-colors"
+                  >
+                    📞 Call Us
+                  </a>
+                  <a
+                    href="https://wa.me/919061548607?text=Hi%20HomeTech,%20I%20want%20to%20inquire%20about%20Water%20Purifiers"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center py-2.5 px-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-lg text-xs transition-colors shadow-sm"
+                  >
+                    💬 WhatsApp
+                  </a>
+                </div>
               </div>
             </div>
           </div>

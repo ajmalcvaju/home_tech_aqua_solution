@@ -1,42 +1,94 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Send, CheckCircle2, Phone, Calendar, MapPin, User, Mail } from "lucide-react";
+import { X, Send, CheckCircle2, Phone, Calendar, MapPin, User, Mail, Loader2 } from "lucide-react";
 import WhatsAppIcon from "./WhatsAppIcon";
 
 interface QuoteModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialProduct?: string;
+  isServiceMode?: boolean;
 }
 
-export default function QuoteModal({ isOpen, onClose, initialProduct = "" }: QuoteModalProps) {
+export default function QuoteModal({
+  isOpen,
+  onClose,
+  initialProduct = "",
+  isServiceMode = false,
+}: QuoteModalProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
     service: initialProduct || "Copper & Alkaline RO Purifier",
+    warrantyStatus: "O/W",
+    purchaseDate: "",
     address: "",
     date: "",
     message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+
+    try {
+      const payload: Record<string, string> = {
+        _subject: `New ${isServiceMode ? "Service" : "Quote"} Request: ${formData.service} - ${formData.name || "Customer"}`,
+        _template: "table",
+        "Customer Name": formData.name,
+        "Phone Number": formData.phone,
+        "Email Address": formData.email || "Not specified",
+        "Service Needed": formData.service,
+      };
+
+      if (isServiceMode) {
+        payload["Warranty Status"] = formData.warrantyStatus === "I/W" ? "In Warranty (I/W)" : "Out of Warranty (O/W)";
+        if (formData.warrantyStatus === "I/W") {
+          payload["Date of Purchase"] = formData.purchaseDate || "Not specified";
+        }
+      }
+
+      payload["Address / City"] = formData.address;
+      payload["Preferred Date"] = formData.date || "Flexible";
+      payload["Message / Details"] = formData.message || "None";
+
+      await fetch("https://formsubmit.co/ajax/ajmalmayanad@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+    } catch (error) {
+      console.error("Error submitting quote request:", error);
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
+  };
+
+  const handleWhatsAppDirect = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     setSubmitted(true);
 
     const details = [
       `Hi HomeTech Aqua Solutions,`,
       ``,
-      `I would like to request a Quote / Service:`,
+      `I would like to request a ${isServiceMode ? "Service Booking" : "Quote / Service"}:`,
       `👤 *Name:* ${formData.name || "Not specified"}`,
       `📞 *Phone:* ${formData.phone || "Not specified"}`,
       formData.email ? `✉️ *Email:* ${formData.email}` : null,
       `🛠️ *Service Needed:* ${formData.service}`,
+      isServiceMode ? `🛡️ *Warranty Status:* ${formData.warrantyStatus === "I/W" ? "In Warranty (I/W)" : "Out of Warranty (O/W)"}` : null,
+      isServiceMode && formData.warrantyStatus === "I/W" && formData.purchaseDate ? `📅 *Date of Purchase:* ${formData.purchaseDate}` : null,
       formData.address ? `📍 *Address:* ${formData.address}` : null,
       formData.date ? `📅 *Preferred Date:* ${formData.date}` : null,
       formData.message ? `📝 *Message:* ${formData.message}` : null,
@@ -45,11 +97,6 @@ export default function QuoteModal({ isOpen, onClose, initialProduct = "" }: Quo
       .join("\n");
 
     window.open(`https://wa.me/919061548607?text=${encodeURIComponent(details)}`, "_blank");
-  };
-
-  const handleWhatsAppDirect = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    handleSubmit(e || ({ preventDefault: () => {} } as React.FormEvent));
   };
 
   return (
@@ -67,9 +114,11 @@ export default function QuoteModal({ isOpen, onClose, initialProduct = "" }: Quo
 
           <div className="pr-8">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-cyan-400">
-              Fast Response Guaranteed
+              {isServiceMode ? "Doorstep Service Request" : "Fast Response Guaranteed"}
             </span>
-            <h3 className="text-lg sm:text-2xl font-black text-white mt-0.5">Get a Free Quote & Water Test</h3>
+            <h3 className="text-lg sm:text-2xl font-black text-white mt-0.5">
+              {isServiceMode ? "Book Service & Repair" : "Get a Free Quote & Water Test"}
+            </h3>
             <p className="text-slate-300 text-[11px] sm:text-xs mt-0.5 leading-snug">
               Tell us your requirements — our technical team in Calicut will call you back within 24 hours.
             </p>
@@ -182,6 +231,61 @@ export default function QuoteModal({ isOpen, onClose, initialProduct = "" }: Quo
                 </div>
               </div>
 
+              {/* Service-Specific Warranty Fields: I/W or O/W and Date of Purchase */}
+              {isServiceMode && (
+                <div className="space-y-3 bg-slate-50 p-3.5 rounded-2xl border border-cyan-200/80">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                      Warranty Status *
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, warrantyStatus: "I/W" })}
+                        className={`py-2 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 border transition-all cursor-pointer ${
+                          formData.warrantyStatus === "I/W"
+                            ? "bg-[#0B192C] text-cyan-300 border-[#0B192C] shadow-sm"
+                            : "bg-white text-slate-700 border-slate-200 hover:bg-slate-100"
+                        }`}
+                      >
+                        <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        In Warranty (I/W)
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, warrantyStatus: "O/W" })}
+                        className={`py-2 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 border transition-all cursor-pointer ${
+                          formData.warrantyStatus === "O/W"
+                            ? "bg-[#0B192C] text-cyan-300 border-[#0B192C] shadow-sm"
+                            : "bg-white text-slate-700 border-slate-200 hover:bg-slate-100"
+                        }`}
+                      >
+                        <span className="w-2 h-2 rounded-full bg-amber-400"></span>
+                        Out of Warranty (O/W)
+                      </button>
+                    </div>
+                  </div>
+
+                  {formData.warrantyStatus === "I/W" && (
+                    <div className="animate-in fade-in slide-in-from-top-1 duration-200">
+                      <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                        Date of Purchase *
+                      </label>
+                      <div className="relative">
+                        <Calendar className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                        <input
+                          type="date"
+                          required={formData.warrantyStatus === "I/W"}
+                          value={formData.purchaseDate}
+                          onChange={(e) => setFormData({ ...formData, purchaseDate: e.target.value })}
+                          className="w-full pl-9 pr-3 py-2 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900 font-medium"
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Address */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
@@ -235,9 +339,18 @@ export default function QuoteModal({ isOpen, onClose, initialProduct = "" }: Quo
               <div className="pt-2 flex flex-col sm:flex-row gap-3">
                 <button
                   type="submit"
-                  className="flex-1 py-3 bg-[#0B192C] hover:bg-slate-800 text-white font-bold rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={loading}
+                  className="flex-1 py-3 bg-[#0B192C] hover:bg-slate-800 disabled:opacity-70 text-white font-bold rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <Send className="w-4 h-4 text-cyan-400" /> Submit Request
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 text-cyan-400 animate-spin" /> Submitting...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 text-cyan-400" /> Submit Request
+                    </>
+                  )}
                 </button>
                 <button
                   type="button"

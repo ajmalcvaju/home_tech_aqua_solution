@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { Check, Phone } from "lucide-react";
 import { Product } from "@/data/products";
+import CallbackModal from "./CallbackModal";
 
 interface ProductCardProps {
   product: Product;
@@ -11,6 +12,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, onEnquire }: ProductCardProps) {
+  const [isCallbackOpen, setIsCallbackOpen] = useState(false);
   // Category display helper label
   const categoryLabel = product.category.toUpperCase();
 
@@ -87,26 +89,42 @@ export default function ProductCard({ product, onEnquire }: ProductCardProps) {
         </div>
       </div>
 
-      {/* Bottom Price & Inquire Action Row */}
-      <div className="pt-4 mt-2 border-t border-slate-100 flex items-center justify-between gap-2">
-        <div className="flex items-baseline gap-1.5 flex-wrap">
-          <span className="text-xl sm:text-2xl font-black text-[#0B3C70] tracking-tight">
-            {product.price || "Get Quote"}
-          </span>
-          {product.mrp && (
-            <span className="text-xs font-semibold text-slate-400 line-through">
-              {product.mrp}
+      {/* Bottom Price & Actions */}
+      <div className="pt-3 mt-2 border-t border-slate-100 space-y-2.5">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-baseline gap-1.5 flex-wrap">
+            <span className="text-xl sm:text-2xl font-black text-[#0B3C70] tracking-tight">
+              {product.price || "Get Quote"}
             </span>
-          )}
+            {product.mrp && (
+              <span className="text-xs font-semibold text-slate-400 line-through">
+                {product.mrp}
+              </span>
+            )}
+          </div>
+
+          <button
+            onClick={handleInquire}
+            className="bg-[#009FE3] hover:bg-[#0088C7] text-white text-xs sm:text-sm font-extrabold px-4 py-2.5 rounded-xl shadow-md transition-all active:scale-95 cursor-pointer shrink-0"
+          >
+            Inquire
+          </button>
         </div>
 
         <button
-          onClick={handleInquire}
-          className="bg-[#009FE3] hover:bg-[#0088C7] text-white text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-xl shadow-md transition-all active:scale-95 cursor-pointer shrink-0"
+          onClick={() => setIsCallbackOpen(true)}
+          className="w-full py-2.5 bg-[#0B192C] hover:bg-slate-800 text-white text-xs font-extrabold rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm active:scale-98 cursor-pointer"
         >
-          Inquire
+          <Phone className="w-3.5 h-3.5 text-cyan-400" />
+          <span>Request a Callback</span>
         </button>
       </div>
+
+      <CallbackModal
+        isOpen={isCallbackOpen}
+        onClose={() => setIsCallbackOpen(false)}
+        productName={product.name}
+      />
     </div>
   );
 }

@@ -3,7 +3,8 @@ export type ProductCategory =
   | "Water Treatment Plant"
   | "RO Treatment Plant"
   | "Water Cooler"
-  | "Inverter";
+  | "Inverter"
+  | "Battery";
 
 export interface Product {
   id: string;
@@ -584,14 +585,13 @@ export const PRODUCTS_DATA: Product[] = [
     subtitle: "Premium heavy-duty sand and sediment media filter vessel",
     badge: "Sediment Filter",
     price: "₹24,000",
-    mrp: "₹32,000",
     description:
       "Premium heavy-duty sand and sediment media filter vessel. Removes dust, silt, clay, mud, and all suspended particles from incoming water supply.",
     highlights: [
       "Vessel: FRP pressure tank",
       "Operation: Multiport Valve",
       "Service: Easy manual backwash",
-      "Offer Price: ₹24,000 (MRP ₹32,000)",
+      "Offer Price: ₹24,000",
     ],
     specs: {
       technology: "Turbid / Muddy Sand Media",
@@ -693,13 +693,14 @@ export const PRODUCTS_DATA: Product[] = [
   },
   {
     id: "sunexa-commercial-ro-purification-system",
-    name: "Sunexa Commercial Multi-Stage RO Purification System",
+    name: "Sunexa 25 LPH Commercial Multi-Stage RO Purification System",
     category: "RO Treatment Plant",
-    subtitle: "Heavy-Duty Frame Mounted Commercial RO with PP, CTO & GAC Pre-Filtration",
-    badge: "Commercial RO",
+    subtitle: "25 LPH Heavy-Duty Frame Mounted Commercial RO with PP, CTO & GAC Pre-Filtration",
+    badge: "25 LPH Commercial RO",
     description:
-      "Sunexa Heavy-Duty Commercial Water Purification System built on a powder-coated steel frame. Equipped with 3 jumbo pre-filtration canisters (Polypropylene Sediment PP, Sintered Activated Carbon Block CTO, and Granular Activated Carbon GAC) combined with high-flow RO membranes for hotels, restaurants, cafes, hospitals, schools, and commercial offices.",
+      "Sunexa 25 LPH Heavy-Duty Commercial Water Purification System built on a powder-coated steel frame. Equipped with 3 jumbo pre-filtration canisters (Polypropylene Sediment PP, Sintered Activated Carbon Block CTO, and Granular Activated Carbon GAC) combined with high-flow 25 LPH RO membranes for hotels, restaurants, cafes, hospitals, schools, and commercial offices.",
     highlights: [
+      "Capacity: 25 LPH (Litres Per Hour) Commercial High-Flow Rate",
       "Filtration: 3 Jumbo Canisters (PP Sediment, CTO Carbon Block & GAC Coconut Carbon)",
       "Structure: Heavy-Duty Powder-Coated Skid Frame for Easy Floor Installation",
       "Application: High TDS Reduction & Odor/Chlorine Removal for Commercial Establishments",
@@ -707,11 +708,79 @@ export const PRODUCTS_DATA: Product[] = [
     ],
     specs: {
       technology: "5-Stage Commercial RO + PP + CTO + GAC + Mineral Polish",
-      capacity: "50 - 100 LPH Flow Rate",
+      capacity: "25 LPH Flow Rate",
       warranty: "1 Year Warranty",
       idealFor: "Restaurants, Cafes, Hostels, Hospitals, Clinics & Commercial Offices",
     },
     image: "/sunexa_commercial_ro_system.jpg",
+  },
+  {
+    id: "sunexa-50-lph-commercial-ro-purification-system",
+    name: "Sunexa 50 LPH Commercial Multi-Stage RO Purification System",
+    category: "RO Treatment Plant",
+    subtitle: "50 LPH Heavy-Duty Frame Mounted Commercial RO with PP, CTO & GAC Pre-Filtration",
+    badge: "50 LPH Commercial RO",
+    description:
+      "Sunexa 50 LPH Heavy-Duty Commercial Water Purification System built on a powder-coated steel frame. Equipped with 3 jumbo pre-filtration canisters (Polypropylene Sediment PP, Sintered Activated Carbon Block CTO, and Granular Activated Carbon GAC) combined with twin high-flow 50 LPH RO membranes for hotels, restaurants, cafes, hospitals, schools, and commercial offices.",
+    highlights: [
+      "Capacity: 50 LPH (Litres Per Hour) Commercial High-Flow Rate",
+      "Filtration: 3 Jumbo Canisters (PP Sediment, CTO Carbon Block & GAC Coconut Carbon)",
+      "Structure: Heavy-Duty Powder-Coated Skid Frame for Easy Floor Installation",
+      "Application: High TDS Reduction & Odor/Chlorine Removal for Commercial Establishments",
+      "Warranty: 1-Year Comprehensive Warranty",
+    ],
+    specs: {
+      technology: "5-Stage Commercial RO + PP + CTO + GAC + Mineral Polish",
+      capacity: "50 LPH Flow Rate",
+      warranty: "1 Year Warranty",
+      idealFor: "Restaurants, Cafes, Hostels, Hospitals, Clinics & Commercial Offices",
+    },
+    image: "/sunexa_50lph_commercial_ro_system.jpg",
+  },
+  {
+    id: "flonix-100-lph-commercial-ro-purification-system",
+    name: "Flonix 100 LPH Multi-Stage Heavy Duty Commercial RO System",
+    category: "RO Treatment Plant",
+    subtitle: "100 LPH Industrial Heavy-Duty Skid RO with 3 Pressure Gauges & PPF, GAC, CTO Pre-Filtration",
+    badge: "100 LPH Commercial RO",
+    description:
+      "Flonix 100 LPH Industrial Heavy-Duty Commercial RO Water Purification System engineered with 3 precision pressure gauges (Pre-Filter, Pump & Membrane Pressure Monitoring), powder-coated steel skid frame, and 3 jumbo filtration canisters (PPF Polypropylene, GAC Coconut Shell Carbon & CTO Carbon Block). Features quad high-rejection 100 LPH RO membranes for commercial food processing, hotels, institutions, and industrial plants.",
+    highlights: [
+      "Capacity: 100 LPH (Litres Per Hour) High-Output Purification",
+      "Gauges: 3 Precision Pressure Gauges for Real-Time Pressure Diagnostics",
+      "Filtration: 3 Jumbo Canisters (PPF Sediment, GAC Carbon & CTO Block)",
+      "Frame: Heavy-Duty Industrial Powder-Coated Floor Skid Stand",
+      "Warranty: 1-Year Comprehensive Warranty",
+    ],
+    specs: {
+      technology: "Industrial Multi-Stage RO + 3 Pressure Gauges + PPF + GAC + CTO",
+      capacity: "100 LPH High Flow",
+      warranty: "1 Year Warranty",
+      idealFor: "Commercial Kitchens, Hotels, Bottling Plants, Hospitals & Factories",
+    },
+    image: "/flonix_100lph_commercial_ro_system.jpg",
+  },
+  {
+    id: "flonix-premium-orium-advanced-water-purification-system",
+    name: "Flonix Premium Orium Advanced Commercial Water Purification System",
+    category: "RO Treatment Plant",
+    subtitle: "Advanced Wall & Floor Mount Commercial Purifier with CTO, GAC & PPF Tri-Canisters",
+    badge: "Advanced Purification",
+    description:
+      "Flonix Premium Orium Advanced Commercial Water Purification System built with high-efficiency CTO Sintered Carbon Block, GAC Coconut Shell Activated Carbon, and PPF Polypropylene Sediment pre-filtration. Designed in a compact dark-edition cabinet for high-purity water supply in commercial establishments, labs, clinics, and offices.",
+    highlights: [
+      "Technology: Advanced Tri-Canister (CTO + GAC + PPF) RO Purification",
+      "Design: Heavy-Duty Enclosed Dark Frame Cabinet with Wall/Floor Mount Options",
+      "Filtration: CTO Sintered Carbon + GAC Coconut Shell + PPF Sediment",
+      "Warranty: 1-Year Comprehensive Warranty",
+    ],
+    specs: {
+      technology: "Advanced Tri-Canister RO + CTO + GAC + PPF",
+      capacity: "High Capacity Flow",
+      warranty: "1 Year Warranty",
+      idealFor: "Commercial Offices, Labs, Clinics, Cafes & Premium Outlets",
+    },
+    image: "/flonix_orium_advanced_ro_system.jpg",
   },
   {
     id: "hometech-ss304-commercial-water-cooler",
@@ -1535,7 +1604,7 @@ export const PRODUCTS_DATA: Product[] = [
   {
     id: "envaro-en150-c10-tubular-battery",
     name: "ENVÁRO EN 150 C10 12V 150Ah Tubular UPS Battery",
-    category: "Inverter",
+    category: "Battery",
     subtitle: "Heavy-Duty C10 Rated 12V 150Ah Tubular Battery for Inverters & UPS",
     badge: "3-Year Replacement Warranty",
     price: "₹15,000",
@@ -1559,7 +1628,7 @@ export const PRODUCTS_DATA: Product[] = [
   {
     id: "vion-lfp12160-lithium-battery",
     name: "VION LFP 12160 Lithium-ion Battery (12.8V 100Ah)",
-    category: "Inverter",
+    category: "Battery",
     subtitle: "Next-Gen LiFePO4 Lithium Battery for Home UPS & Inverters",
     badge: "5-Year Replacement Warranty",
     price: "₹18,000",
@@ -1584,7 +1653,7 @@ export const PRODUCTS_DATA: Product[] = [
   {
     id: "vion-lfp25160-solar-lithium-battery",
     name: "VION LFP 25160 High Voltage Solar Lithium Battery (25.6V)",
-    category: "Inverter",
+    category: "Battery",
     subtitle: "Heavy-Duty 25.6V High Capacity LiFePO4 Solar & Home UPS Battery",
     badge: "5-Year Replacement Warranty",
     price: "₹33,986",
@@ -1684,7 +1753,7 @@ export const PRODUCTS_DATA: Product[] = [
   {
     id: "microtek-mtekpower-hadi-tall-tubular-battery-et1148",
     name: "Microtek MtekPower HADI Tall Tubular Battery (ET1148+)",
-    category: "Inverter",
+    category: "Battery",
     subtitle: "220Ah @ C20 Long Life Heavy-Duty Tall Tubular Inverter Battery with 48 Months Warranty",
     badge: "48 Months Warranty",
     description:
@@ -1706,7 +1775,7 @@ export const PRODUCTS_DATA: Product[] = [
   {
     id: "vpower-tech-inva-dynamo-220ah-battery",
     name: "V-Power Tech Inva Dynamo 220Ah Tall Tubular Battery (IT-500 UPTT 12000)",
-    category: "Inverter",
+    category: "Battery",
     subtitle: "220Ah @ C20 Hybrid Technology High Performance Tall Tubular Inverter Battery",
     badge: "72 Months Warranty",
     description:
@@ -1728,7 +1797,7 @@ export const PRODUCTS_DATA: Product[] = [
   {
     id: "flyon-batteries-smart-inverter-combo-series",
     name: "Flyon Heavy-Duty Tubular Battery & Smart Inverter Series",
-    category: "Inverter",
+    category: "Battery",
     subtitle: "Flyon Energy Plus, Ultra Gold & Ultra Plus Tubular Batteries with Smart Inverter",
     badge: "84 Months Warranty",
     description:
@@ -1750,7 +1819,7 @@ export const PRODUCTS_DATA: Product[] = [
   {
     id: "fuze-fz165ah-tall-tubular-battery",
     name: "FUZE FZ 165AH Heavy Duty Tall Tubular Battery",
-    category: "Inverter",
+    category: "Battery",
     subtitle: "165Ah Silent Energy Solution Powered by USA Technology",
     badge: "72 Months Warranty",
     description:
@@ -1772,7 +1841,7 @@ export const PRODUCTS_DATA: Product[] = [
   {
     id: "massimo-it500-tall-tubular-battery",
     name: "Massimo IT500 Heavy Duty Tall Tubular Battery",
-    category: "Inverter",
+    category: "Battery",
     subtitle: "100% Charged Power-On Heavy Duty Inverter Battery System",
     badge: "Heavy Duty Backup",
     description:

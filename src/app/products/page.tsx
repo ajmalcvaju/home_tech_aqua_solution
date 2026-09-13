@@ -31,6 +31,7 @@ export default function ProductsPage() {
     "RO Treatment Plant",
     "Water Cooler",
     "Inverter",
+    "Battery",
   ];
 
   const filteredProducts = PRODUCTS_DATA.filter((product) => {

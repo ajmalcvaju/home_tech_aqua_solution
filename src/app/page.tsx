@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -16,8 +16,73 @@ import { ShieldCheck, Droplets, Sparkles, ArrowRight, Award, Clock, Activity, St
 
 export default function HomePage() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const featuredProductIds = [
+    "flonix-relax-black-copper-ro",
+    "organic-curvv-zinc-copper-ro",
+    "sarwans-wave-krystal-ro",
+    "blue-mount-aura-white-blue",
+  ];
+
+  const featuredProducts = PRODUCTS_DATA.filter((p) => featuredProductIds.includes(p.id)).sort(
+    (a, b) => featuredProductIds.indexOf(a.id) - featuredProductIds.indexOf(b.id)
+  );
   const [selectedProduct, setSelectedProduct] = useState("");
   const [activeTab, setActiveTab] = useState<"residential" | "commercial" | "inverter">("residential");
+  const [isPaused, setIsPaused] = useState(false);
+  const [touchStartPos, setTouchStartPos] = useState<{ x: number; y: number } | null>(null);
+
+  const tabs: Array<"residential" | "commercial" | "inverter"> = ["residential", "commercial", "inverter"];
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveTab((prev) => {
+        const currentIndex = tabs.indexOf(prev);
+        const nextIndex = (currentIndex + 1) % tabs.length;
+        return tabs[nextIndex];
+      });
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsPaused(true);
+    if (e.touches && e.touches[0]) {
+      setTouchStartPos({
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY,
+      });
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    setIsPaused(false);
+    if (!touchStartPos || !e.changedTouches || !e.changedTouches[0]) return;
+
+    const touchEndObj = e.changedTouches[0];
+    const deltaX = touchEndObj.clientX - touchStartPos.x;
+    const deltaY = touchEndObj.clientY - touchStartPos.y;
+
+    // Minimum 35px horizontal swipe distance & horizontal > vertical to allow page scrolling
+    if (Math.abs(deltaX) > 35 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < 0) {
+        // Swiped Left -> Move to Next Slide
+        setActiveTab((prev) => {
+          const currentIndex = tabs.indexOf(prev);
+          return tabs[(currentIndex + 1) % tabs.length];
+        });
+      } else {
+        // Swiped Right -> Move to Previous Slide
+        setActiveTab((prev) => {
+          const currentIndex = tabs.indexOf(prev);
+          return tabs[(currentIndex - 1 + tabs.length) % tabs.length];
+        });
+      }
+    }
+    setTouchStartPos(null);
+  };
 
   const handleOpenQuote = (productName?: string) => {
     setSelectedProduct(productName || "Copper & Alkaline RO Purifier");
@@ -30,18 +95,30 @@ export default function HomePage() {
       title: "Pure Drinking Water for Your Family",
       desc: "Eliminates 99.9% TDS, heavy metals & bacteria while enriching water with copper & alkaline minerals.",
       highlight: "15 LPH Flow | Active Copper Cartridge",
+      image: "/hero_family_purifier.png",
+      alt: "Happy family enjoying pure water from HomeTech water purifier",
+      badgeTitle: "Certified Water Guarantee",
+      badgeSub: "Genuine authorized spare parts only",
     },
     commercial: {
       badge: "Commercial RO Plants (250 - 2000 LPH)",
       title: "High-Capacity Purifiers for Businesses",
       desc: "Skid-mounted commercial RO systems for hotels, hospitals, clinics, and offices across Kerala.",
       highlight: "Stainless Steel Skid | Continuous TDS Monitor",
+      image: "/hero_commercial_ro_plant.jpg",
+      alt: "High-capacity commercial industrial RO water treatment plant with digital monitoring",
+      badgeTitle: "Industrial RO Technology",
+      badgeSub: "Continuous TDS & Flow Monitor",
     },
     inverter: {
       badge: "Pure Sine Wave Inverters & Li-Ion Batteries",
       title: "Uninterrupted Power Backup Solutions",
       desc: "High-capacity smart inverters and lithium/tubular batteries for homes, offices, and heavy commercial loads.",
       highlight: "Pure Sine Wave | Long Backup Warranty",
+      image: "/hero_inverter_backup.png",
+      alt: "Family enjoying uninterrupted power backup in home with smart inverter",
+      badgeTitle: "Pure Sine Wave Power",
+      badgeSub: "Up to 84 Months Comprehensive Warranty",
     },
   };
 
@@ -50,8 +127,18 @@ export default function HomePage() {
       <Header onOpenQuoteModal={handleOpenQuote} />
 
       <main className="flex-1">
-        {/* COMPACT ULTRA-ELEGANT HERO SECTION */}
-        <section className="relative bg-gradient-to-r from-[#041527] via-[#092847] to-[#0E3A68] text-white py-10 lg:py-14 overflow-hidden">
+        {/* COMPACT ULTRA-ELEGANT HERO SECTION WITH AUTO-SLIDE & TOUCH SWIPE */}
+        <section
+          className="relative bg-gradient-to-r from-[#041527] via-[#092847] to-[#0E3A68] text-white py-10 lg:py-14 overflow-hidden touch-pan-y"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onTouchCancel={() => {
+            setIsPaused(false);
+            setTouchStartPos(null);
+          }}
+        >
           {/* Animated Background Water Particle Orbs */}
           <div className="absolute top-1/4 left-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
           <div className="absolute bottom-5 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -157,18 +244,18 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Hero Right Visual Presentation - Family Lifestyle Photo matching user's reference image */}
+              {/* Hero Right Visual Presentation */}
               <div className="lg:col-span-6 relative flex justify-center items-center">
                 <div className="relative w-full max-w-lg animate-hero-slide-up">
                   {/* Glowing background aura */}
                   <div className="absolute -inset-4 bg-gradient-to-t from-cyan-400/25 via-blue-500/15 to-transparent rounded-[36px] blur-2xl pointer-events-none" />
 
-                  {/* Main Family Lifestyle Image Box matching prompt reference */}
+                  {/* Main Lifestyle Image Box */}
                   <div className="relative rounded-[28px] overflow-hidden shadow-2xl border border-white/10 bg-slate-900 group">
                     <img
-                      src="/hero_family_purifier.png"
-                      alt="Happy family enjoying pure water from HomeTech water purifier"
-                      className="w-full h-auto max-h-[480px] sm:max-h-[520px] object-cover mx-auto group-hover:scale-[1.02] transition-transform duration-500"
+                      src={heroDetails[activeTab].image}
+                      alt={heroDetails[activeTab].alt}
+                      className="w-full h-auto max-h-[480px] sm:max-h-[520px] object-cover mx-auto group-hover:scale-[1.02] transition-all duration-500"
                     />
 
                     {/* Floating Warranty Pill Badge matching exact reference image design */}
@@ -178,10 +265,10 @@ export default function HomePage() {
                       </div>
                       <div>
                         <h4 className="text-xs font-black text-slate-900 leading-tight">
-                          Certified Water Guarantee
+                          {heroDetails[activeTab].badgeTitle}
                         </h4>
                         <p className="text-[10px] font-semibold text-slate-500 mt-0.5">
-                          Genuine authorized spare parts only
+                          {heroDetails[activeTab].badgeSub}
                         </p>
                       </div>
                     </div>
@@ -203,58 +290,25 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* MISSION & SUSTAINABLE ENGINEERING SECTION */}
+        {/* OUR FEATURED PRODUCTS SECTION */}
         <section className="py-16 sm:py-20 bg-white border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-              <div className="lg:col-span-6 space-y-5">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-cyan-600">
-                  OUR MISSION & VISION
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B192C] leading-tight">
-                  Pure water, healthier lives, and sustainable engineering
-                </h2>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  Founded with a vision to eliminate water contamination issues in borewells, wells, and municipal supplies across Kerala, HomeTech Aqua Solutions brings state-of-the-art multi-stage RO, UV, UF, Copper & Alkaline technology right to your doorstep.
-                </p>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  Whether it is stripping high TDS and iron from hard borewell water in residential villas or commissioning CPCB-compliant packaged STP/ETP units for commercial complexes, our certified engineering team delivers zero-compromise purity.
-                </p>
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-cyan-600">
+                BESTSELLERS & TOP RATED
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B192C] tracking-tight mt-1">
+                Featured Products
+              </h2>
+              <p className="text-slate-600 text-sm mt-2 font-medium">
+                Explore Kerala&apos;s most trusted multi-stage Copper, Zinc & Alkaline RO water purifiers.
+              </p>
+            </div>
 
-                <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-2xl bg-cyan-50/70 border border-cyan-200">
-                    <h4 className="text-sm font-bold text-cyan-950">Genuine Parts</h4>
-                    <p className="text-xs text-slate-600 mt-1">100% authorized membranes, pumps, and media filters.</p>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200">
-                    <h4 className="text-sm font-bold text-emerald-950">Expert Support</h4>
-                    <p className="text-xs text-slate-600 mt-1">Prompt technician visits & comprehensive AMC support.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Image Container - Engineering photo with floating badge */}
-              <div className="lg:col-span-6 relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-900 group">
-                  <img
-                    src="/about_engineering.png"
-                    alt="HomeTech Sustainable Water Engineering Team"
-                    className="w-full h-80 sm:h-96 object-cover mx-auto group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Floating Badge matching reference screenshot */}
-                  <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
-                      <ShieldCheck className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-black text-slate-900">Sustainable Engineering</h4>
-                      <p className="text-[10px] text-slate-500 font-semibold">Certified Engineers & CPCB Compliance</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {featuredProducts.map((product) => (
+                <ProductCard key={product.id} product={product} onEnquire={handleOpenQuote} />
+              ))}
             </div>
           </div>
         </section>
@@ -278,8 +332,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Product Category Cards Grid - 5 Columns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            {/* Product Category Cards Grid - 6 Columns */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
               {[
                 {
                   id: "domestic-purifier",
@@ -316,10 +370,18 @@ export default function HomePage() {
                 {
                   id: "inverter",
                   name: "Inverter",
-                  subtitle: "Tall Tubular & Next-Gen LiFePO4 Lithium Batteries for UPS",
+                  subtitle: "Smart Pure Sine Wave Home Inverters & UPS Systems",
                   badge: "Power Backup",
                   image: "/inverter_category.jpg",
-                  count: "Long Life Backup",
+                  count: "Sine Wave UPS",
+                },
+                {
+                  id: "battery",
+                  name: "Battery",
+                  subtitle: "Tall Tubular & Next-Gen LiFePO4 Lithium Batteries for Home UPS",
+                  badge: "Battery Storage",
+                  image: "/envaro_en150_c10_tubular_battery.jpg",
+                  count: "Tubular & Lithium",
                 },
               ].map((cat) => (
                 <Link

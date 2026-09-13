@@ -46,7 +46,7 @@ export default function Footer() {
 
               {/* WhatsApp SVG */}
               <a
-                href="https://wa.me/919778031990"
+                href="https://wa.me/919061548607"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 rounded-full bg-slate-800/80 hover:bg-emerald-600 flex items-center justify-center text-slate-300 hover:text-white transition-colors"
@@ -146,14 +146,35 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-slate-300">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                <a
-                  href="https://maps.app.goo.gl/at8QKtB8cB1csU8U8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-cyan-300 transition-colors"
-                >
-                  Chemmalil Masjid Building, Nisari Junction, Ramanattukara, Kozhikode, Kerala 673633
-                </a>
+                <div className="space-y-2">
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-400 block mb-0.5">
+                      Head Office (Ramanattukara):
+                    </span>
+                    <a
+                      href="https://maps.app.goo.gl/at8QKtB8cB1csU8U8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-cyan-300 transition-colors block text-xs leading-relaxed"
+                    >
+                      Chemmalil Masjid Building, Nisari Junction, Ramanattukara, Kozhikode, Kerala 673633
+                    </a>
+                  </div>
+
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-0.5">
+                      Second Shop (Puthukkode):
+                    </span>
+                    <a
+                      href="https://maps.app.goo.gl/mwRUbmBp6GN9b7rx9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-cyan-300 transition-colors block text-xs leading-relaxed text-slate-300"
+                    >
+                      VC Building, Puthukkode Pallipadi, Parammal By-pass, Near L.P School
+                    </a>
+                  </div>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
@@ -173,7 +194,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-4">
-          <p>© 2026 HomeTech Aqua Solutions (waterfactory.in). All rights reserved.</p>
+          <a
+            href="https://wa.me/919061548607"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-emerald-400 transition-colors cursor-pointer font-medium"
+          >
+            © 2026 HomeTech Aqua Solutions. All rights reserved.
+          </a>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1 text-emerald-400 font-medium">
               <ShieldCheck className="w-4 h-4" /> Genuine Authorized Equipment

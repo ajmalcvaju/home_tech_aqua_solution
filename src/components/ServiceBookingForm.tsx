@@ -1,33 +1,83 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle2, MessageSquare, Send, Sparkles } from "lucide-react";
+import { CheckCircle2, MessageSquare, Send, Sparkles, Loader2, Calendar } from "lucide-react";
 
-export default function ServiceBookingForm() {
+interface ServiceBookingFormProps {
+  isServiceMode?: boolean;
+}
+
+export default function ServiceBookingForm({ isServiceMode = false }: ServiceBookingFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
     service: "Free Doorstep Water Test",
+    warrantyStatus: "O/W",
+    purchaseDate: "",
     address: "",
     date: "",
     message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+
+    try {
+      const payload: Record<string, string> = {
+        _subject: `New Service Request: ${formData.service} - ${formData.name || "Customer"}`,
+        _template: "table",
+        "Customer Name": formData.name,
+        "Phone Number": formData.phone,
+        "Email Address": formData.email || "Not specified",
+        "Service Needed": formData.service,
+      };
+
+      if (isServiceMode) {
+        payload["Warranty Status"] = formData.warrantyStatus === "I/W" ? "In Warranty (I/W)" : "Out of Warranty (O/W)";
+        if (formData.warrantyStatus === "I/W") {
+          payload["Date of Purchase"] = formData.purchaseDate || "Not specified";
+        }
+      }
+
+      payload["Address / City"] = formData.address;
+      payload["Preferred Date"] = formData.date || "Flexible";
+      payload["Message / Details"] = formData.message || "None";
+
+      await fetch("https://formsubmit.co/ajax/ajmalmayanad@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+    } catch (error) {
+      console.error("Error submitting service booking request:", error);
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
+  };
+
+  const handleWhatsAppInstant = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     setSubmitted(true);
 
     const details = [
       `Hi HomeTech Aqua Solutions,`,
       ``,
-      `I would like to submit a request for doorstep service / water test:`,
+      `I would like to submit a request for doorstep service:`,
       `👤 *Name:* ${formData.name || "Not specified"}`,
       `📞 *Phone:* ${formData.phone || "Not specified"}`,
       formData.email ? `✉️ *Email:* ${formData.email}` : null,
       `🛠️ *Service Needed:* ${formData.service}`,
+      isServiceMode ? `🛡️ *Warranty Status:* ${formData.warrantyStatus === "I/W" ? "In Warranty (I/W)" : "Out of Warranty (O/W)"}` : null,
+      isServiceMode && formData.warrantyStatus === "I/W" && formData.purchaseDate ? `📅 *Date of Purchase:* ${formData.purchaseDate}` : null,
       formData.address ? `📍 *Address:* ${formData.address}` : null,
       formData.date ? `📅 *Preferred Date:* ${formData.date}` : null,
       formData.message ? `📝 *Message:* ${formData.message}` : null,
@@ -36,11 +86,6 @@ export default function ServiceBookingForm() {
       .join("\n");
 
     window.open(`https://wa.me/919061548607?text=${encodeURIComponent(details)}`, "_blank");
-  };
-
-  const handleWhatsAppInstant = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    handleSubmit(e || ({ preventDefault: () => {} } as React.FormEvent));
   };
 
   return (
@@ -177,6 +222,61 @@ export default function ServiceBookingForm() {
                   </div>
                 </div>
 
+                {/* Service-Specific Warranty Status (I/W vs O/W) & Date of Purchase */}
+                {isServiceMode && (
+                  <div className="space-y-3 bg-slate-50 p-4 rounded-2xl border border-cyan-200/80">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                        Warranty Status *
+                      </label>
+                      <div className="grid grid-cols-2 gap-3">
+                        <button
+                          type="button"
+                          onClick={() => setFormData({ ...formData, warrantyStatus: "I/W" })}
+                          className={`py-2.5 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 border transition-all cursor-pointer ${
+                            formData.warrantyStatus === "I/W"
+                              ? "bg-[#0B192C] text-cyan-300 border-[#0B192C] shadow-sm"
+                              : "bg-white text-slate-700 border-slate-200 hover:bg-slate-100"
+                          }`}
+                        >
+                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                          In Warranty (I/W)
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setFormData({ ...formData, warrantyStatus: "O/W" })}
+                          className={`py-2.5 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 border transition-all cursor-pointer ${
+                            formData.warrantyStatus === "O/W"
+                              ? "bg-[#0B192C] text-cyan-300 border-[#0B192C] shadow-sm"
+                              : "bg-white text-slate-700 border-slate-200 hover:bg-slate-100"
+                          }`}
+                        >
+                          <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                          Out of Warranty (O/W)
+                        </button>
+                      </div>
+                    </div>
+
+                    {formData.warrantyStatus === "I/W" && (
+                      <div className="animate-in fade-in slide-in-from-top-1 duration-200">
+                        <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                          Date of Purchase *
+                        </label>
+                        <div className="relative">
+                          <Calendar className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
+                          <input
+                            type="date"
+                            required={formData.warrantyStatus === "I/W"}
+                            value={formData.purchaseDate}
+                            onChange={(e) => setFormData({ ...formData, purchaseDate: e.target.value })}
+                            className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900 font-semibold"
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
                     Address *
@@ -221,10 +321,20 @@ export default function ServiceBookingForm() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-3.5 bg-[#0B192C] hover:bg-slate-800 text-white font-extrabold rounded-xl text-sm transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                    disabled={loading}
+                    className="w-full sm:w-auto px-8 py-3.5 bg-[#0B192C] hover:bg-slate-800 disabled:opacity-70 text-white font-extrabold rounded-xl text-sm transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <Send className="w-4 h-4 text-cyan-400" />
-                    <span>Submit Request</span>
+                    {loading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 text-cyan-400 animate-spin" />
+                        <span>Submitting...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 text-cyan-400" />
+                        <span>Submit Request</span>
+                      </>
+                    )}
                   </button>
                 </div>
               </form>

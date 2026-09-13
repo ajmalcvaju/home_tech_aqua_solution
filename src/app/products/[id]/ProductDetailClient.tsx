@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import QuoteModal from "@/components/QuoteModal";
+import CallbackModal from "@/components/CallbackModal";
 import { PRODUCTS_DATA, Product } from "@/data/products";
 import { Check, MessageCircle, Phone } from "lucide-react";
 
@@ -24,6 +25,7 @@ interface ProductDetailClientProps {
 
 export default function ProductDetailClient({ productId }: ProductDetailClientProps) {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [isCallbackOpen, setIsCallbackOpen] = useState(false);
   const [selectedProductName, setSelectedProductName] = useState("");
 
   const product = PRODUCTS_DATA.find((p) => p.id === productId) || PRODUCTS_DATA[0];
@@ -143,6 +145,14 @@ export default function ProductDetailClient({ productId }: ProductDetailClientPr
               </div>
 
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <button
+                  onClick={() => setIsCallbackOpen(true)}
+                  className="bg-[#0B192C] hover:bg-slate-800 text-white font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2.5 cursor-pointer active:scale-95 flex-1"
+                >
+                  <Phone className="w-4 h-4 text-cyan-400" />
+                  <span>Request a Callback</span>
+                </button>
+
                 <a
                   href={`https://wa.me/919061548607?text=${encodeURIComponent(
                     `Hi HomeTech Aqua Solutions, I am interested in ${product.name} (${product.price || ""}). Please provide more details.`
@@ -237,6 +247,7 @@ export default function ProductDetailClient({ productId }: ProductDetailClientPr
       <Footer />
       <FloatingActions />
       <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} initialProduct={selectedProductName} />
+      <CallbackModal isOpen={isCallbackOpen} onClose={() => setIsCallbackOpen(false)} productName={product.name} />
     </div>
   );
 }
