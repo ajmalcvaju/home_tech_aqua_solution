@@ -27,7 +27,7 @@ export default function CallbackModal({ isOpen, onClose, productName = "" }: Cal
     setLoading(true);
 
     try {
-      await fetch("https://formsubmit.co/ajax/ajmalmayanad@gmail.com", {
+      await fetch("https://formsubmit.co/ajax/sales@hometechaquasolutions.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -59,7 +59,11 @@ export default function QuoteModal({
       payload["Preferred Date"] = formData.date || "Flexible";
       payload["Message / Details"] = formData.message || "None";
 
-      await fetch("https://formsubmit.co/ajax/ajmalmayanad@gmail.com", {
+      const targetEmail = isServiceMode
+        ? "service@hometechaquasolutions.com"
+        : "sales@hometechaquasolutions.com";
+
+      await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
