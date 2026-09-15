@@ -163,7 +163,7 @@ export default function Footer() {
 
                   <div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-0.5">
-                      Second Shop (Puthukkode):
+                      Branch Office (Puthukkode):
                     </span>
                     <a
                       href="https://maps.app.goo.gl/mwRUbmBp6GN9b7rx9"

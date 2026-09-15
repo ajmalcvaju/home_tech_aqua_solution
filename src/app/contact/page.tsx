@@ -113,7 +113,7 @@ export default function ContactPage() {
                 Our Store Locations & Google Maps View
               </h2>
               <p className="text-slate-400 text-sm max-w-xl mx-auto">
-                Locate our Head Office in Ramanattukara or our Second Shop in Puthukkode directly on Google Maps.
+                Locate our Head Office in Ramanattukara or our Branch Office in Puthukkode directly on Google Maps.
               </p>
             </div>
 
@@ -153,11 +153,11 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              {/* Second Shop - Puthukkode Store Grid Card */}
+              {/* Branch Office - Puthukkode Store Grid Card */}
               <div className="bg-[#0b1f38] rounded-3xl p-6 sm:p-8 border border-blue-500/30 shadow-2xl flex flex-col justify-between space-y-5">
                 <div className="space-y-3">
                   <span className="px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/40 text-blue-300 text-[11px] font-black uppercase tracking-wider inline-block">
-                    SECOND SHOP
+                    BRANCH OFFICE
                   </span>
                   <h3 className="text-2xl font-black text-white">Puthukkode Store</h3>
                   <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
@@ -169,7 +169,7 @@ export default function ContactPage() {
                 <div className="w-full h-72 sm:h-80 rounded-2xl overflow-hidden border border-blue-500/30 bg-slate-950 relative shadow-inner">
                   <iframe
                     title="HomeTech Aqua Solutions Puthukkode Store Google Map"
-                    src="https://maps.google.com/maps?q=VC%20Building,%20Puthukkode%20Pallipadi,%20Parammal%20Bypass,%20Kerala&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3913.97517898433!2d75.87547219999999!3d11.189472199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDExJzIyLjEiTiA3NcKwNTInMzEuNyJF!5e0!3m2!1sen!2sin!4v1789453823249!5m2!1sen!2sin"
                     className="w-full h-full border-0 filter contrast-[1.05]"
                     allowFullScreen
                     loading="lazy"
