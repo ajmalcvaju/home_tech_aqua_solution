@@ -198,8 +198,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
-                <a href="mailto:hometechaquasolutions@gmail.com" className="hover:text-cyan-400 transition-colors">
-                  hometechaquasolutions@gmail.com
+                <a href="mailto:sales@hometechkerala.com" className="hover:text-cyan-400 transition-colors">
+                  sales@hometechkerala.com
                 </a>
               </li>
             </ul>

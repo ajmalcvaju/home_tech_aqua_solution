@@ -85,8 +85,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-extrabold text-[#0B192C] text-base leading-tight">Email & WhatsApp Support</h3>
-                  <a href="mailto:hometechaquasolutions@gmail.com" className="text-xs font-bold text-slate-800 block mt-1 hover:underline break-all">
-                    hometechaquasolutions@gmail.com
+                  <a href="mailto:sales@hometechkerala.com" className="text-xs font-bold text-slate-800 block mt-1 hover:underline break-all">
+                    sales@hometechkerala.com
                   </a>
                   <a
                     href="https://wa.me/919061548607"
