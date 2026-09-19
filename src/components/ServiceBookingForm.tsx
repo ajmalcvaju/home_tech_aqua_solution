@@ -7,7 +7,7 @@ interface ServiceBookingFormProps {
   isServiceMode?: boolean;
 }
 
-export default function ServiceBookingForm({ isServiceMode = false }: ServiceBookingFormProps) {
+export default function ServiceBookingForm({ isServiceMode = true }: ServiceBookingFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
