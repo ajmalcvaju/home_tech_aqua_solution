@@ -113,12 +113,12 @@ export default function ContactPage() {
                 Our Store Locations & Google Maps View
               </h2>
               <p className="text-slate-400 text-sm max-w-xl mx-auto">
-                Locate our Head Office in Ramanattukara or our Branch Office in Puthukkode directly on Google Maps.
+                Locate our Head Office in Ramanattukara, Display Center in Kozhikode, or Branch Office in Puthukkode directly on Google Maps.
               </p>
             </div>
 
             {/* Store Cards Grid with Maps Embedded directly in each card */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Head Office - Ramanattukara Store Grid Card */}
               <div className="bg-[#0b1f38] rounded-3xl p-6 sm:p-8 border border-cyan-500/30 shadow-2xl flex flex-col justify-between space-y-5">
                 <div className="space-y-3">
@@ -153,23 +153,57 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              {/* Branch Office - Puthukkode Store Grid Card */}
+              {/* Display Center - Kozhikode Grid Card */}
               <div className="bg-[#0b1f38] rounded-3xl p-6 sm:p-8 border border-blue-500/30 shadow-2xl flex flex-col justify-between space-y-5">
                 <div className="space-y-3">
                   <span className="px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/40 text-blue-300 text-[11px] font-black uppercase tracking-wider inline-block">
-                    BRANCH OFFICE
+                    DISPLAY CENTER
                   </span>
-                  <h3 className="text-2xl font-black text-white">Puthukkode Store</h3>
+                  <h3 className="text-2xl font-black text-white">Display Center</h3>
                   <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                    VC Building, Puthukkode Pallipadi, Parammal By-pass, Near L.P School
+                    VC Building, Parammal By-pass, Near LP School, Kozhikode, PIN: 673632
                   </p>
                 </div>
 
                 {/* Map View directly inside Card 2 */}
                 <div className="w-full h-72 sm:h-80 rounded-2xl overflow-hidden border border-blue-500/30 bg-slate-950 relative shadow-inner">
                   <iframe
-                    title="HomeTech Aqua Solutions Puthukkode Store Google Map"
-                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3913.97517898433!2d75.87547219999999!3d11.189472199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDExJzIyLjEiTiA3NcKwNTInMzEuNyJF!5e0!3m2!1sen!2sin!4v1789453823249!5m2!1sen!2sin"
+                    title="HomeTech Aqua Solutions Display Center Kozhikode Google Map"
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3913.97914786391!2d75.86751937504792!3d11.1891784889858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDExJzIyLjAiTiA3NcKwNTInMTIuMyJF!5e0!3m2!1sen!2sin!4v1789798915176!5m2!1sen!2sin"
+                    className="w-full h-full border-0 filter contrast-[1.05]"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+
+                <a
+                  href="https://www.google.com/maps?q=11.1891785,75.8675194"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-black text-xs sm:text-sm rounded-2xl transition-all shadow-lg text-center flex items-center justify-center gap-2 tracking-wide"
+                >
+                  <MapPin className="w-4 h-4" /> Get Directions on Google Maps ↗
+                </a>
+              </div>
+
+              {/* Branch Office - Puthukkode Grid Card */}
+              <div className="bg-[#0b1f38] rounded-3xl p-6 sm:p-8 border border-emerald-500/30 shadow-2xl flex flex-col justify-between space-y-5">
+                <div className="space-y-3">
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 text-[11px] font-black uppercase tracking-wider inline-block">
+                    BRANCH OFFICE
+                  </span>
+                  <h3 className="text-2xl font-black text-white">Puthukkode Branch</h3>
+                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    Pallipadi Puthukkode Road, Near Irfan Flour Mill, Kozhikode, PIN: 673632
+                  </p>
+                </div>
+
+                {/* Map View directly inside Card 3 */}
+                <div className="w-full h-72 sm:h-80 rounded-2xl overflow-hidden border border-emerald-500/30 bg-slate-950 relative shadow-inner">
+                  <iframe
+                    title="HomeTech Aqua Solutions Puthukkode Branch Google Map"
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3913.97517898433!2d75.87547219999999!3d11.189472199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDExJzIyLjEiTiA3NcKwNTInMzEuNyJF!5e0!3m2!1sen!2sin!4v1789799436963!5m2!1sen!2sin"
                     className="w-full h-full border-0 filter contrast-[1.05]"
                     allowFullScreen
                     loading="lazy"
@@ -181,7 +215,7 @@ export default function ContactPage() {
                   href="https://maps.app.goo.gl/mwRUbmBp6GN9b7rx9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-black text-xs sm:text-sm rounded-2xl transition-all shadow-lg text-center flex items-center justify-center gap-2 tracking-wide"
+                  className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs sm:text-sm rounded-2xl transition-all shadow-lg text-center flex items-center justify-center gap-2 tracking-wide"
                 >
                   <MapPin className="w-4 h-4" /> Get Directions on Google Maps ↗
                 </a>

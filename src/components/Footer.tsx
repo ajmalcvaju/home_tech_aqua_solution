@@ -163,6 +163,20 @@ export default function Footer() {
 
                   <div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-0.5">
+                      Display Center (Kozhikode):
+                    </span>
+                    <a
+                      href="https://www.google.com/maps?q=11.1891785,75.8675194"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-cyan-300 transition-colors block text-xs leading-relaxed text-slate-300"
+                    >
+                      VC Building, Parammal By-pass, Near LP School, Kozhikode - 673632
+                    </a>
+                  </div>
+
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 block mb-0.5">
                       Branch Office (Puthukkode):
                     </span>
                     <a
@@ -171,7 +185,7 @@ export default function Footer() {
                       rel="noopener noreferrer"
                       className="hover:text-cyan-300 transition-colors block text-xs leading-relaxed text-slate-300"
                     >
-                      VC Building, Puthukkode Pallipadi, Parammal By-pass, Near L.P School
+                      Pallipadi Puthukkode Road, Near Irfan Flour Mill, Kozhikode - 673632
                     </a>
                   </div>
                 </div>

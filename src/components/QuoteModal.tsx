@@ -60,8 +60,8 @@ export default function QuoteModal({
       payload["Message / Details"] = formData.message || "None";
 
       const targetEmail = isServiceMode
-        ? "service@hometechaquasolutions.com"
-        : "sales@hometechaquasolutions.com";
+        ? "service@hometechkerala.com"
+        : "sales@hometechkerala.com";
 
       await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
         method: "POST",
