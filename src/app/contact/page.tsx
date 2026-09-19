@@ -224,8 +224,8 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Main Service Booking Form */}
-        <ServiceBookingForm />
+        {/* Sales Enquiry Form */}
+        <ServiceBookingForm isServiceMode={false} />
 
         {/* Interactive FAQ Accordion */}
         <section className="py-20 bg-white border-t border-slate-200">

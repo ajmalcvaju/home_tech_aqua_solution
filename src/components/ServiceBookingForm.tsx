@@ -7,7 +7,7 @@ interface ServiceBookingFormProps {
   isServiceMode?: boolean;
 }
 
-export default function ServiceBookingForm({ isServiceMode = true }: ServiceBookingFormProps) {
+export default function ServiceBookingForm({ isServiceMode = false }: ServiceBookingFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -141,7 +141,7 @@ export default function ServiceBookingForm({ isServiceMode = true }: ServiceBook
           {/* Right Column Form Box matching reference image 4 */}
           <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl shadow-2xl border border-slate-200/80">
             <h3 className="text-2xl font-black text-[#0B192C] mb-6 border-b border-slate-100 pb-4">
-              Request a Free Water Test
+              {isServiceMode ? "Book Doorstep Purifier Service" : "Request a Free Water Test"}
             </h3>
 
             {submitted ? (

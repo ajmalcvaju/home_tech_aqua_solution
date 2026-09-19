@@ -426,8 +426,8 @@ export default function HomePage() {
         {/* TESTIMONIALS SECTION */}
         <Testimonials />
 
-        {/* BOOK A SERVICE SECTION */}
-        <ServiceBookingForm />
+        {/* BOOK A SERVICE / SALES FORM SECTION */}
+        <ServiceBookingForm isServiceMode={false} />
       </main>
 
       <Footer />
